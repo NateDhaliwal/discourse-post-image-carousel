@@ -13,8 +13,8 @@ export default apiInitializer((api) => {
       title: themePrefix("add_image_carousel"),
       perform: (e) => {
         e.applySurround(
-          `[carousel=${settings.carousel_software}]\n[image]\n`,
-          "\n[/image]\n[/carousel]",
+          `[wrap=${settings.carousel_software}]\n[wrap="carousel-image"]\n`,
+          "\n[/wrap]\n[/wrap]",
           "image_carousel_placeholder"
         );
       }
