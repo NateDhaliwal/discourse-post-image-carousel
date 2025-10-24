@@ -3,3 +3,7 @@ carousel_software:
   default: "Swiper"
   choices:
     - "Splide"
+
+image_carousel_placeholder:
+  type: text
+  default: '<img src="https://placehold.co/400" />'
