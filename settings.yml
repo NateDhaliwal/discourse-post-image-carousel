@@ -5,5 +5,5 @@ carousel_software:
     - "Splide"
 
 image_carousel_placeholder:
-  type: text
+  type: string
   default: '<img src="https://placehold.co/400" />'
