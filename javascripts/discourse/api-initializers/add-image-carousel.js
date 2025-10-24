@@ -5,7 +5,7 @@ export default apiInitializer((api) => {
     action: (toolbarEvent) => {
       toolbarEvent.applySurround(`[carousel=${settings.carousel_software}]\n[image]`, "[/image]\n[/carousel]");
     },
-    icon: 'fa-images',
+    icon: 'fas-images',
     label: 'add_image_carousel'
   });
 });
