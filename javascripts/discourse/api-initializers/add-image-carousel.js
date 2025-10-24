@@ -78,7 +78,7 @@ export default apiInitializer((api) => {
             });
             </script>
             `;
-            
+            }
           }
           imgCarslsContent += `
             <div class="swiper-button-prev"></div>
