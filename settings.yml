@@ -7,3 +7,15 @@ carousel_software:
 image_carousel_placeholder:
   type: string
   default: '<img src="https://placehold.co/400" />'
+
+show_pagination_buttons:
+  type: bool
+  default: true
+
+autoplay:
+  type: bool
+  default: true
+
+autoplay_interval:
+  type: integer
+  default: 5000
