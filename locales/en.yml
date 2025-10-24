@@ -1,5 +1,5 @@
 en:
   theme_metadata:
-    description: "TODO"
+    description: "This Theme Component allows image carousels to be added within posts."
     settings:
-      example_setting: "A description of a setting."
+      carousel_software: "Which software to use to make carousels"
