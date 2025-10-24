@@ -27,7 +27,7 @@ export default apiInitializer((api) => {
     if (allImgCarsls !== null) {
       let allImgCarslsArr = [...allImgCarsls];
 
-      // Iterate, in case there are multiple graphs in a single post
+      // Iterate, in case there are multiple carousels in a single post
       allImgCarslsArr.forEach((imgCarsls) => {
         let allImgDivs = imgCarsls.querySelectorAll('div[data-wrap="carousel-image"]');
         let allImgs = [];
@@ -38,6 +38,9 @@ export default apiInitializer((api) => {
             allImgs.push(imgDiv.children[0]);
           });
         }
+
+        console.log(allImgDivs);
+        console.log(allImgs);
         if (settings.carousel_software === "Swiper") {
           let initScript = `
           <script>
