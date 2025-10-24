@@ -1,2 +1,5 @@
-example_setting:
-  default: true
+carousel_software:
+  type: enum
+  default: "Swiper"
+  choices:
+    - "Splide"
