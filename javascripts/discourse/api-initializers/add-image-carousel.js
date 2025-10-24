@@ -20,4 +20,119 @@ export default apiInitializer((api) => {
       }
     });
   });
+
+  api.decorateCookedElement((element) => {
+    let allImgCarsls = element.querySelectorAll('div[data-wrap="Swiper"]');
+    
+    if (allImgCarsls !== null) {
+      let allImgCarslsArr = [...allImgCarsls];
+
+      // Iterate, in case there are multiple graphs in a single post
+      allImgCarslsArr.forEach((imgCarsls) => {
+        let allImgDivs = imgCarsls.querySelectorAll('div[data-wrap="carousel-image"]');
+        let allImgs = [];
+
+        if (allImgDivs !== null) {
+          let allImgsDivsArr = [...allImgDivs];
+          allImgsDivsArr.forEach((imgDiv) => {
+            allImgs.push(imgDiv.children[0]);
+          });
+        }
+        if (settings.carousel_software === "Swiper") {
+          let initScript = `
+          <script>
+          const swiper = new Swiper('.swiper', {
+            // Navigation arrows
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            },
+            
+          `;
+          let imgCarslsContent = `
+          <div class="swiper">
+            <div class="swiper-wrapper">
+          `
+          allImgs.forEach((img) => {
+            imgCarslsContent += `
+              <div class="swiper-slide">
+            ` + img +
+            "\n</div>"
+          });
+            
+          imgCarslsContent += "\n</div>";
+          if (settings.show_pagination_buttons) {
+            imgCarslsContent += "\n<div class='swiper-pagination'></div>";
+            initScript += `
+              // Pagination
+              pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+              },            
+            });
+            </script>
+            `;
+            
+          }
+          imgCarslsContent += `
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            </div>
+            
+          `;
+
+          imgCarslsContent += initScript;
+          imgCarsls.innerHTML = imgCarslsContent;
+
+        } else {
+          let imgCarslsContent = `
+          <div class="splide">
+            <div class="splide__track">
+              <ul class="splide__list">
+          `
+          allImgs.forEach((img) => {
+            imgCarslsContent += `
+              <li class="splide__slide">
+            ` + img +
+            "</li>"
+          });
+  
+          imgCarslsContent += `
+          <script>
+          `;
+          
+          if (settings.show_pagination_buttons) {
+            imgCarslsContent += `
+              new Splide( '.splide', {
+                pagination: true,
+            `;
+            if (settings.autoplay) {
+              imgCarslsContent += `
+                autoplay: true,
+                interval: ${settings.autoplay_interval}
+              `;
+            }
+          } else {
+            imgCarslsContent += `
+              new Splide( '.splide', {
+                pagination: false,
+            `;
+            if (settings.autoplay) {
+              imgCarslsContent += `
+                autoplay: true,
+                interval: ${settings.autoplay_interval}
+              `;
+            }
+          }
+
+          imgCarslsContent += `
+            });
+            </script>
+          `;
+          
+          imgCarsls.innerHTML = imgCarslsContent;
+        }
+      });
+    }
+  });
 });
