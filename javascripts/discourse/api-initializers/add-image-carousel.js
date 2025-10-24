@@ -68,7 +68,13 @@ export default apiInitializer((api) => {
               pagination: {
                 el: '.swiper-pagination',
                 clickable: true
-              },            
+              },
+            `;
+            if (settings.autoplay) {
+              initScript += `
+              autoplay: {
+                delay: ${settings.autoplay_interval}
+              }
             });
             </script>
             `;
