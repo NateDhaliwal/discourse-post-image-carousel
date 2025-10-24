@@ -5,3 +5,4 @@ en:
     description: "This Theme Component allows image carousels to be added within posts."
     settings:
       carousel_software: "Which software to use to make carousels"
+      image_carousel_placeholder: "Placeholder for 1 image carousel's image"
