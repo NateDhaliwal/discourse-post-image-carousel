@@ -111,44 +111,51 @@ export default apiInitializer((api) => {
             </div>
           </div>
           `
-  
-          let initScript = ``;
-          
-          if (settings.show_pagination_buttons) {
-            initScript += `
-              new Splide('#splide-${allImgCarslsArr.indexOf(imgCarsls)}', {
-                pagination: true,
-                arrows: true,
-                perPage: 1,
-                type: 'loop',
-            `;
-            if (settings.autoplay) {
-              initScript += `
-                autoplay: true,
-                interval: ${settings.autoplay_interval}
-              `;
-            }
-          } else {
-            initScript += `
-              new Splide('#splide-${allImgCarslsArr.indexOf(imgCarsls)}', {
-                pagination: false,
-            `;
-            if (settings.autoplay) {
-              initScript += `
-                autoplay: true,
-                interval: ${settings.autoplay_interval}
-              `;
-            }
-          }
 
-          initScript += `
-            }).mount();
-          `;
+          // let initScript = ``;
+          
+          // if (settings.show_pagination_buttons) {
+          //   initScript += `
+          //     new Splide('#splide-${allImgCarslsArr.indexOf(imgCarsls)}', {
+          //       pagination: true,
+          //       arrows: true,
+          //       perPage: 1,
+          //       type: 'loop',
+          //   `;
+          //   if (settings.autoplay) {
+          //     initScript += `
+          //       autoplay: true,
+          //       interval: ${settings.autoplay_interval}
+          //     `;
+          //   }
+          // } else {
+          //   initScript += `
+          //     new Splide('#splide-${allImgCarslsArr.indexOf(imgCarsls)}', {
+          //       pagination: false,
+          //   `;
+          //   if (settings.autoplay) {
+          //     initScript += `
+          //       autoplay: true,
+          //       interval: ${settings.autoplay_interval}
+          //     `;
+          //   }
+          // }
+
+          // initScript += `
+          //   }).mount();
+          // `;
           
           imgCarsls.innerHTML = imgCarslsContent;
-          const initScriptTag = document.createElement('script');
-          initScriptTag.innerHTML = initScript;
-          document.body.appendChild(initScriptTag);
+          // const initScriptTag = document.createElement('script');
+          // initScriptTag.innerHTML = initScript;
+          // document.body.appendChild(initScriptTag);
+          new Splide('#splide-${allImgCarslsArr.indexOf(imgCarsls)}', {
+            pagination: settings.show_pagination_buttons,
+            arrows: true,
+            perPage: 1,
+            autoplay: settings.autoplay,
+            interval: settings.autoplay_interval
+          });
         }
       });
     }
