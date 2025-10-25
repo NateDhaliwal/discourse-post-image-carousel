@@ -149,7 +149,8 @@ export default apiInitializer((api) => {
           // const initScriptTag = document.createElement('script');
           // initScriptTag.innerHTML = initScript;
           // document.body.appendChild(initScriptTag);
-          new Splide('#splide-${allImgCarslsArr.indexOf(imgCarsls)}', {
+
+          new Splide(`#splide-${allImgCarslsArr.indexOf(imgCarsls)}`, {
             pagination: settings.show_pagination_buttons,
             arrows: true,
             perPage: 1,
