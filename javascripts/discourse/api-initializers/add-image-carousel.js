@@ -150,13 +150,20 @@ export default apiInitializer((api) => {
           // initScriptTag.innerHTML = initScript;
           // document.body.appendChild(initScriptTag);
 
-          new Splide(`#splide-${allImgCarslsArr.indexOf(imgCarsls)}`, {
-            pagination: settings.show_pagination_buttons,
-            arrows: true,
-            perPage: 1,
-            autoplay: settings.autoplay,
-            interval: settings.autoplay_interval
-          });
+          // Use setTimeout or next tick to ensure the element is in DOM
+          setTimeout(() => {
+            const splideEl = document.querySelector(`#splide-${allImgCarslsArr.indexOf(imgCarsls)}`);
+            if (splideEl) {
+              new Splide(splideEl, {
+                pagination: settings.show_pagination_buttons,
+                arrows: true,
+                perPage: 1,
+                type: 'loop',
+                autoplay: settings.autoplay,
+                interval: settings.autoplay_interval
+              }).mount();
+            }
+          }, 0);
         }
       });
     }
