@@ -95,7 +95,7 @@ export default apiInitializer((api) => {
           document.body.appendChild(initScriptTag);
         } else {
           let imgCarslsContent = `
-          <div class="splide" id="${allImgCarslsArr.indexOf(imgCarsls)}">
+          <div class="splide" id="splide-${allImgCarslsArr.indexOf(imgCarsls)}">
             <div class="splide__track">
               <ul class="splide__list">
           `
@@ -116,7 +116,7 @@ export default apiInitializer((api) => {
           
           if (settings.show_pagination_buttons) {
             initScript += `
-              new Splide('#${allImgCarslsArr.indexOf(imgCarsls)}', {
+              new Splide('#splide-${allImgCarslsArr.indexOf(imgCarsls)}', {
                 pagination: true,
                 arrows: true,
                 perPage: 1,
@@ -130,7 +130,7 @@ export default apiInitializer((api) => {
             }
           } else {
             initScript += `
-              new Splide('#${allImgCarslsArr.indexOf(imgCarsls)}', {
+              new Splide('#splide-${allImgCarslsArr.indexOf(imgCarsls)}', {
                 pagination: false,
             `;
             if (settings.autoplay) {
