@@ -59,9 +59,13 @@ export default apiInitializer((api) => {
           allImgs.forEach((img) => {
             console.log(img);
             console.log(img.attributes);
+            let attrs = {};
+            img.attributes.forEach((attr) => {
+              attrs[attr.name] = attr.nodeValue;
+            });
             imgCarslsContent += `
               <div class="swiper-slide">
-                ${img}
+                <img src="${attrs.src}" height="${attrs.height}" width="${attrs.width}" />
               </div>
             `;
           });
