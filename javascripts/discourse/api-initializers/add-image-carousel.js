@@ -60,7 +60,7 @@ export default apiInitializer((api) => {
             console.log(img.attributes);
             imgCarslsContent += `
               <div class="swiper-slide">
-                <img src="${img.attributes.getNamedItem('src')}" height="${img.attributes.getNamedItem('height')}" width="${img.attributes.getNamedItem('width')}" />
+                <img src="${img.attributes.getNamedItem('src').value}" height="${img.attributes.getNamedItem('height').value}" width="${img.attributes.getNamedItem('width').value}" />
               </div>
             `;
           });
