@@ -89,9 +89,9 @@ export default apiInitializer((api) => {
             
           `;
 
-          imgCarslsContent += initScript;
+          imgCarslsContent;
           imgCarsls.innerHTML = imgCarslsContent;
-
+          document.body.innerHTML += initScript;
         } else {
           let imgCarslsContent = `
           <div class="splide" id="${allImgCarslsArr.indexOf(imgCarsls)}">
@@ -105,13 +105,18 @@ export default apiInitializer((api) => {
               </li>
             `;
           });
-  
           imgCarslsContent += `
+              </ul>
+            </div>
+          </div>
+          `
+  
+          let initScript = `
           <script>
           `;
           
           if (settings.show_pagination_buttons) {
-            imgCarslsContent += `
+            initScript += `
               new Splide('#${allImgCarslsArr.indexOf(imgCarsls)}', {
                 pagination: true,
                 arrows: true,
@@ -119,30 +124,31 @@ export default apiInitializer((api) => {
                 type: 'loop',
             `;
             if (settings.autoplay) {
-              imgCarslsContent += `
+              initScript += `
                 autoplay: true,
                 interval: ${settings.autoplay_interval}
               `;
             }
           } else {
-            imgCarslsContent += `
+            initScript += `
               new Splide('#${allImgCarslsArr.index(imgCarsls)}', {
                 pagination: false,
             `;
             if (settings.autoplay) {
-              imgCarslsContent += `
+              initScript += `
                 autoplay: true,
                 interval: ${settings.autoplay_interval}
               `;
             }
           }
 
-          imgCarslsContent += `
+          initScript += `
             }).mount();
             </script>
           `;
           
           imgCarsls.innerHTML = imgCarslsContent;
+          document.body.innerHTML += initScript;
         }
       });
     }
