@@ -112,7 +112,7 @@ export default apiInitializer((api) => {
           
           if (settings.show_pagination_buttons) {
             imgCarslsContent += `
-              new Splide( '.splide', {
+              new Splide('.splide', {
                 pagination: true,
             `;
             if (settings.autoplay) {
@@ -135,7 +135,7 @@ export default apiInitializer((api) => {
           }
 
           imgCarslsContent += `
-            });
+            }).mount();
             </script>
           `;
           
