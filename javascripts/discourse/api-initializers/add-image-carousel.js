@@ -57,11 +57,13 @@ export default apiInitializer((api) => {
             <div class="swiper-wrapper">
           `
           allImgs.forEach((img) => {
-            imgCarslsContent += `
-              <div class="swiper-slide">
-                <img src="${img.attributes.src.nodeValue}" height="${img.attributes.heigh.nodeValue}" width="${img.attributes.width.nodeValue}" />
-              </div>
-            `;
+            console.log(img);
+            console.log(img.attributes);
+            // imgCarslsContent += `
+            //   <div class="swiper-slide">
+            //     <img src="${img.attributes.src.nodeValue}" height="${img.attributes.heigh.nodeValue}" width="${img.attributes.width.nodeValue}" />
+            //   </div>
+            // `;
           });
             
           imgCarslsContent += "\n</div>";
