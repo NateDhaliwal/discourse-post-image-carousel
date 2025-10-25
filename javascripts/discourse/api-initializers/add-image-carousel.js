@@ -41,7 +41,6 @@ export default apiInitializer((api) => {
 
         if (settings.carousel_software === "Swiper") {
           let initScript = `
-          <script>
           const swiper = new Swiper('.swiper', {
             // Navigation arrows
             navigation: {
@@ -78,7 +77,6 @@ export default apiInitializer((api) => {
                 delay: ${settings.autoplay_interval}
               }
             });
-            </script>
             `;
             }
           }
@@ -91,7 +89,10 @@ export default apiInitializer((api) => {
 
           imgCarslsContent;
           imgCarsls.innerHTML = imgCarslsContent;
-          document.body.innerHTML += initScript;
+
+          const initScriptTag = document.createElement('script');
+          initScriptTag.innerHTML = initScript;
+          document.body.appendChild(initScriptTag);
         } else {
           let imgCarslsContent = `
           <div class="splide" id="${allImgCarslsArr.indexOf(imgCarsls)}">
@@ -148,7 +149,9 @@ export default apiInitializer((api) => {
           `;
           
           imgCarsls.innerHTML = imgCarslsContent;
-          document.body.innerHTML += initScript;
+          const initScriptTag = document.createElement('script');
+          initScriptTag.innerHTML = initScript;
+          document.body.appendChild(initScriptTag);
         }
       });
     }
