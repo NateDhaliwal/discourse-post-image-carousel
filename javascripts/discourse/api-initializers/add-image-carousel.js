@@ -80,6 +80,12 @@ export default apiInitializer((api) => {
           //   `;
           //   }
           // }
+
+          if (settings.show_pagination_buttons) {
+            imgCarslsContent += `
+            <div class="swiper-pagination"></div>
+            `;
+          }
           imgCarslsContent += `
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
