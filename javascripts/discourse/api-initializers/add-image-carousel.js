@@ -94,13 +94,13 @@ export default apiInitializer((api) => {
 
         } else {
           let imgCarslsContent = `
-          <div class="splide">
+          <div class="splide" id="${allImgCarslsArr.index(imgCarsls)}">
             <div class="splide__track">
               <ul class="splide__list">
           `
           allImgs.forEach((img) => {
             imgCarslsContent += `
-              <li class="splite__slide">
+              <li class="splide__slide">
                 <img src="${img.attributes.getNamedItem('src').value}" height="${img.attributes.getNamedItem('height').value}" width="${img.attributes.getNamedItem('width').value}" />
               </li>
             `;
@@ -112,7 +112,7 @@ export default apiInitializer((api) => {
           
           if (settings.show_pagination_buttons) {
             imgCarslsContent += `
-              new Splide('.splide', {
+              new Splide('#${allImgCarslsArr.index(imgCarsls)}', {
                 pagination: true,
             `;
             if (settings.autoplay) {
@@ -123,7 +123,7 @@ export default apiInitializer((api) => {
             }
           } else {
             imgCarslsContent += `
-              new Splide( '.splide', {
+              new Splide('#${allImgCarslsArr.index(imgCarsls)}', {
                 pagination: false,
             `;
             if (settings.autoplay) {
