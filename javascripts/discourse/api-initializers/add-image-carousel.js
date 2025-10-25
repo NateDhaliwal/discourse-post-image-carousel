@@ -114,6 +114,9 @@ export default apiInitializer((api) => {
             imgCarslsContent += `
               new Splide('#${allImgCarslsArr.indexOf(imgCarsls)}', {
                 pagination: true,
+                arrows: true,
+                perPage: 1,
+                type: 'loop',
             `;
             if (settings.autoplay) {
               imgCarslsContent += `
