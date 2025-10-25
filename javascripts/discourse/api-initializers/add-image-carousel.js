@@ -177,7 +177,7 @@ export default apiInitializer((api) => {
                 pagination: settings.show_pagination_buttons,
                 arrows: true,
                 perPage: 1,
-                (settings.loop) ? (type: 'loop') : null,
+                type: settings.loop ? 'loop' : 'slide',
                 autoplay: settings.autoplay,
                 interval: settings.autoplay_interval
               }).mount();
