@@ -57,7 +57,7 @@ export default apiInitializer((api) => {
           allImgs.forEach((img) => {
             imgCarslsContent += `
               <div class="swiper-slide">
-                <img src="${img.attributes.src}" height="${img.attributes.height}" width="${img.attributes.width}" />
+                <img src="${img.attributes.src.nodeValue}" height="${img.attributes.heigh.nodeValuet}" width="${img.attributes.width.nodeValue}" />
               </div>
             `;
           });
