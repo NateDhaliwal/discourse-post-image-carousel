@@ -112,9 +112,7 @@ export default apiInitializer((api) => {
           </div>
           `
   
-          let initScript = `
-          <script>
-          `;
+          let initScript = ``;
           
           if (settings.show_pagination_buttons) {
             initScript += `
@@ -145,7 +143,6 @@ export default apiInitializer((api) => {
 
           initScript += `
             }).mount();
-            </script>
           `;
           
           imgCarsls.innerHTML = imgCarslsContent;
