@@ -39,8 +39,6 @@ export default apiInitializer((api) => {
           });
         }
 
-        console.log(allImgs);
-
         if (settings.carousel_software === "Swiper") {
           let initScript = `
           <script>
@@ -57,7 +55,6 @@ export default apiInitializer((api) => {
             <div class="swiper-wrapper">
           `
           allImgs.forEach((img) => {
-            console.log(img.attributes);
             imgCarslsContent += `
               <div class="swiper-slide">
                 <img src="${img.attributes.getNamedItem('src').value}" height="${img.attributes.getNamedItem('height').value}" width="${img.attributes.getNamedItem('width').value}" />
@@ -103,9 +100,10 @@ export default apiInitializer((api) => {
           `
           allImgs.forEach((img) => {
             imgCarslsContent += `
-              <li class="splide__slide">
-            ` + img +
-            "</li>"
+              <li class="splite__slide">
+                <img src="${img.attributes.getNamedItem('src').value}" height="${img.attributes.getNamedItem('height').value}" width="${img.attributes.getNamedItem('width').value}" />
+              </li>
+            `;
           });
   
           imgCarslsContent += `
