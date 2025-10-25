@@ -94,7 +94,7 @@ export default apiInitializer((api) => {
 
         } else {
           let imgCarslsContent = `
-          <div class="splide" id="${allImgCarslsArr.index(imgCarsls)}">
+          <div class="splide" id="${allImgCarslsArr.indexOf(imgCarsls)}">
             <div class="splide__track">
               <ul class="splide__list">
           `
@@ -112,7 +112,7 @@ export default apiInitializer((api) => {
           
           if (settings.show_pagination_buttons) {
             imgCarslsContent += `
-              new Splide('#${allImgCarslsArr.index(imgCarsls)}', {
+              new Splide('#${allImgCarslsArr.indexOf(imgCarsls)}', {
                 pagination: true,
             `;
             if (settings.autoplay) {
