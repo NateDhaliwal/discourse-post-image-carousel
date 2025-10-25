@@ -35,14 +35,10 @@ export default apiInitializer((api) => {
         if (allImgDivs !== null) {
           let allImgsDivsArr = [...allImgDivs];
           allImgsDivsArr.forEach((imgDiv) => {
-            console.log(imgDiv.children[0].children[0]);
-            console.log(imgDiv.childNodes);
             allImgs.push(imgDiv.children[0].children[0]);
           });
         }
 
-        console.log(allImgDivs);
-        console.log(allImgs);
         if (settings.carousel_software === "Swiper") {
           let initScript = `
           <script>
@@ -61,8 +57,9 @@ export default apiInitializer((api) => {
           allImgs.forEach((img) => {
             imgCarslsContent += `
               <div class="swiper-slide">
-            ` + img +
-            "\n</div>"
+                <img src="${img.attributes.src}" height="${img.attributes.height}" width="${img.attributes.width}" />
+              </div>
+            `;
           });
             
           imgCarslsContent += "\n</div>";
