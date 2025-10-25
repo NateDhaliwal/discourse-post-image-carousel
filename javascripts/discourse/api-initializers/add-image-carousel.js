@@ -130,7 +130,7 @@ export default apiInitializer((api) => {
             }
           } else {
             initScript += `
-              new Splide('#${allImgCarslsArr.index(imgCarsls)}', {
+              new Splide('#${allImgCarslsArr.indexOf(imgCarsls)}', {
                 pagination: false,
             `;
             if (settings.autoplay) {
