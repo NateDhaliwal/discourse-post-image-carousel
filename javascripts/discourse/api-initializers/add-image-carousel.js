@@ -96,7 +96,7 @@ export default apiInitializer((api) => {
           setTimeout(() => {
             const swiperElement = document.querySelector(".swiper");
             if (swiperElement) {
-              new Splide(swiperElement, {
+              new Swiper(swiperElement, {
                 navigation: {
                   nextEl: '.swiper-button-next',
                   prevEl: '.swiper-button-prev',
@@ -109,7 +109,7 @@ export default apiInitializer((api) => {
                 autoplay: (settings.autoplay) ? {
                   delay: settings.autoplay_interval
                 } : false,
-              }).mount();
+              });
             }
           }, 0);
         } else {
