@@ -62,24 +62,24 @@ export default apiInitializer((api) => {
           });
             
           imgCarslsContent += "\n</div>";
-          if (settings.show_pagination_buttons) {
-            imgCarslsContent += "\n<div class='swiper-pagination'></div>";
-            initScript += `
-              // Pagination
-              pagination: {
-                el: '.swiper-pagination',
-                clickable: true
-              },
-            `;
-            if (settings.autoplay) {
-              initScript += `
-              autoplay: {
-                delay: ${settings.autoplay_interval}
-              }
-            });
-            `;
-            }
-          }
+          // if (settings.show_pagination_buttons) {
+          //   imgCarslsContent += "\n<div class='swiper-pagination'></div>";
+          //   initScript += `
+          //     // Pagination
+          //     pagination: {
+          //       el: '.swiper-pagination',
+          //       clickable: true
+          //     },
+          //   `;
+          //   if (settings.autoplay) {
+          //     initScript += `
+          //     autoplay: {
+          //       delay: ${settings.autoplay_interval}
+          //     }
+          //   });
+          //   `;
+          //   }
+          // }
           imgCarslsContent += `
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
@@ -90,9 +90,28 @@ export default apiInitializer((api) => {
           imgCarslsContent;
           imgCarsls.innerHTML = imgCarslsContent;
 
-          const initScriptTag = document.createElement('script');
-          initScriptTag.innerHTML = initScript;
-          document.body.appendChild(initScriptTag);
+          // const initScriptTag = document.createElement('script');
+          // initScriptTag.innerHTML = initScript;
+          // document.body.appendChild(initScriptTag);
+          setTimeout(() => {
+            const swiperElement = document.querySelector(".swiper");
+            if (swiperElement) {
+              new Splide(swiperElement, {
+                navigation: {
+                  nextEl: '.swiper-button-next',
+                  prevEl: '.swiper-button-prev',
+                },
+                pagination: (settings.show_pagination_buttons) ? {
+                  el: '.swiper-pagination',
+                  clickable: true
+                } : false,
+                loop: settings.loop,
+                autoplay: (settings.autoplay) ? {
+                  delay: settings.autoplay_interval
+                } : false,
+              }).mount();
+            }
+          }, 0);
         } else {
           let imgCarslsContent = `
           <div class="splide" id="splide-${allImgCarslsArr.indexOf(imgCarsls)}">
@@ -152,13 +171,13 @@ export default apiInitializer((api) => {
 
           // Use setTimeout or next tick to ensure the element is in DOM
           setTimeout(() => {
-            const splideEl = document.querySelector(`#splide-${allImgCarslsArr.indexOf(imgCarsls)}`);
-            if (splideEl) {
-              new Splide(splideEl, {
+            const splideElement = document.querySelector(`#splide-${allImgCarslsArr.indexOf(imgCarsls)}`);
+            if (splideElement) {
+              new Splide(splideElement, {
                 pagination: settings.show_pagination_buttons,
                 arrows: true,
                 perPage: 1,
-                type: 'loop',
+                (settings.loop) ? (type: 'loop') : null,
                 autoplay: settings.autoplay,
                 interval: settings.autoplay_interval
               }).mount();
