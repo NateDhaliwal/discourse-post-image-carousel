@@ -39,6 +39,8 @@ export default apiInitializer((api) => {
           });
         }
 
+        console.log(allImgsDivsArr);
+
         if (settings.carousel_software === "Swiper") {
           let initScript = `
           <script>
