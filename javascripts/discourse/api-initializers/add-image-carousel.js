@@ -36,7 +36,7 @@ export default apiInitializer((api) => {
         if (allImgDivs !== null) {
           let allImgsDivsArr = [...allImgDivs];
           allImgsDivsArr.forEach((imgDiv) => {
-            allImgs.push(imgDiv.children[0].children[0]);
+            allImgs.push(imgDiv.querySelectorAll('img'));
           });
         }
         console.log(allImgs);
