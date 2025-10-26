@@ -13,7 +13,7 @@ export default apiInitializer((api) => {
       title: themePrefix("add_image_carousel"),
       perform: (e) => {
         e.applySurround(
-          `[wrap="Carousel"]\n[wrap="carousel-image"]\n`,
+          `[wrap="Carousel" autoplay=${settings.autoplay}]\n[wrap="carousel-image"]\n`,
           "\n[/wrap]\n[/wrap]",
           "image_carousel_placeholder"
         );
@@ -31,6 +31,14 @@ export default apiInitializer((api) => {
       allImgCarslsArr.forEach((imgCarsls) => {
         let allImgDivs = imgCarsls.querySelectorAll('div[data-wrap="carousel-image"]');
         let allImgs = [];
+        let autoplay = imgCarsls.dataset.autoplay; // Boolean, true or false
+        // Invalid data
+        if (autoplay !== "true" || autoplay !== "false") {
+          autoplay = "true";
+        }
+
+        // Set the boolean
+        autoplay = (autoplay === "true") ? true : false;
 
         if (allImgDivs !== null) {
           let allImgsDivsArr = [...allImgDivs];
@@ -112,7 +120,7 @@ export default apiInitializer((api) => {
                   clickable: true
                 } : false,
                 loop: settings.loop,
-                autoplay: (settings.autoplay) ? {
+                autoplay: (autoplay) ? {
                   delay: settings.autoplay_interval
                 } : false,
               });
@@ -184,7 +192,7 @@ export default apiInitializer((api) => {
                 arrows: true,
                 perPage: 1,
                 type: settings.loop ? 'loop' : 'slide',
-                autoplay: settings.autoplay,
+                autoplay: autoplay,
                 interval: settings.autoplay_interval
               }).mount();
             }
