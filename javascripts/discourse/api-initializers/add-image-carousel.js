@@ -32,6 +32,7 @@ export default apiInitializer((api) => {
         let allImgDivs = imgCarsls.querySelectorAll('div[data-wrap="carousel-image"]');
         let allImgs = [];
         let autoplay = imgCarsls.dataset.autoplay; // Boolean, true or false
+        console.log(autoplay);
         // Invalid data
         if (autoplay !== "true" || autoplay !== "false") {
           autoplay = "true";
