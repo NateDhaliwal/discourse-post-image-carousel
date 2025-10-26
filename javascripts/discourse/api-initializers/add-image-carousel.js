@@ -1,4 +1,4 @@
-import { apiInitializer } from "discourse/lib/api";
+ximport { apiInitializer } from "discourse/lib/api";
 import I18n from "discourse-i18n";
 
 export default apiInitializer((api) => {
@@ -100,7 +100,7 @@ export default apiInitializer((api) => {
           // initScriptTag.innerHTML = initScript;
           // document.body.appendChild(initScriptTag);
           setTimeout(() => {
-            const swiperElement = document.querySelector(".swiper");
+            const swiperElement = element.querySelector(".swiper");
             if (swiperElement) {
               new Swiper(swiperElement, {
                 navigation: {
@@ -177,7 +177,7 @@ export default apiInitializer((api) => {
 
           // Use setTimeout or next tick to ensure the element is in DOM
           setTimeout(() => {
-            const splideElement = document.querySelector(`#splide-${allImgCarslsArr.indexOf(imgCarsls)}`);
+            const splideElement = element.querySelector(`#splide-${allImgCarslsArr.indexOf(imgCarsls)}`);
             if (splideElement) {
               new Splide(splideElement, {
                 pagination: settings.show_pagination_buttons,
