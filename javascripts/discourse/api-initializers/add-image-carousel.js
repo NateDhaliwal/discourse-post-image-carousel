@@ -36,7 +36,7 @@ export default apiInitializer((api) => {
         if (allImgDivs !== null) {
           let allImgsDivsArr = [...allImgDivs];
           allImgsDivsArr.forEach((imgDiv) => {
-            allImgs.push(imgDiv.querySelectorAll('img'));
+            allImgs.push(imgDiv.querySelectorAll('img')[0]); // Get the 1st image. Currently only supports 1 image per imgDiv
           });
         }
         console.log(allImgs);
