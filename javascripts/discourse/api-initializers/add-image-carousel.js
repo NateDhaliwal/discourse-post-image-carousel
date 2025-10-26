@@ -46,7 +46,7 @@ export default apiInitializer((api) => {
             allImgs.push(imgDiv);
           });
         }
-        console.log(allImgs);
+
         if (settings.carousel_software === "Swiper") {
           let initScript = `
           const swiper = new Swiper('.swiper', {
@@ -62,7 +62,6 @@ export default apiInitializer((api) => {
             <div class="swiper-wrapper">
           `
           allImgs.forEach((img) => {
-            console.log(img);
             imgCarslsContent += `
               <div class="swiper-slide">
                 <img src="${img.attributes.getNamedItem('src').value}" height="${img.attributes.getNamedItem('height').value}" width="${img.attributes.getNamedItem('width').value}" />
@@ -71,6 +70,7 @@ export default apiInitializer((api) => {
           });
             
           imgCarslsContent += "\n</div>";
+          // Old code
           // if (settings.show_pagination_buttons) {
           //   imgCarslsContent += "\n<div class='swiper-pagination'></div>";
           //   initScript += `
@@ -145,7 +145,7 @@ export default apiInitializer((api) => {
             </div>
           </div>
           `
-
+          // Old code
           // let initScript = ``;
           
           // if (settings.show_pagination_buttons) {
