@@ -12,9 +12,14 @@ export default apiInitializer((api) => {
       icon: "images",
       title: themePrefix("add_image_carousel"),
       perform: (e) => {
+        // e.applySurround(
+        //   `[wrap="Carousel" autoplay=${settings.autoplay}]\n[wrap="carousel-image"]\n`,
+        //   "\n[/wrap]\n[/wrap]",
+        //   "image_carousel_placeholder"
+        // );
         e.applySurround(
-          `[wrap="Carousel" autoplay=${settings.autoplay}]\n[wrap="carousel-image"]\n`,
-          "\n[/wrap]\n[/wrap]",
+          `[wrap="Carousel" autoplay=${settings.autoplay}]`,
+          "\n[/wrap]",
           "image_carousel_placeholder"
         );
       }
@@ -29,14 +34,16 @@ export default apiInitializer((api) => {
 
       // Iterate, in case there are multiple carousels in a single post
       allImgCarslsArr.forEach((imgCarsls) => {
-        let allImgDivs = imgCarsls.querySelectorAll('div[data-wrap="carousel-image"]');
+        // let allImgDivs = imgCarsls.querySelectorAll('div[data-wrap="carousel-image"]');
+        let allImgDivs = imgCarsls.querySelectorAll('img');
         let allImgs = [];
         let autoplay = imgCarsls.dataset.autoplay === "true";
         
         if (allImgDivs !== null) {
           let allImgsDivsArr = [...allImgDivs];
           allImgsDivsArr.forEach((imgDiv) => {
-            allImgs.push(imgDiv.querySelectorAll('img')[0]); // Get the 1st image. Currently only supports 1 image per imgDiv
+            // allImgs.push(imgDiv.querySelectorAll('img')[0]); // Get the 1st image. Currently only supports 1 image per imgDiv
+            allImgs.push(imgDiv);
           });
         }
         console.log(allImgs);
