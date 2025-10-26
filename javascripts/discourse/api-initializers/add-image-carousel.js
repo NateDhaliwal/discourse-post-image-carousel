@@ -1,4 +1,4 @@
-ximport { apiInitializer } from "discourse/lib/api";
+import { apiInitializer } from "discourse/lib/api";
 import I18n from "discourse-i18n";
 
 export default apiInitializer((api) => {
