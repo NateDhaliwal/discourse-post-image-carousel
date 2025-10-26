@@ -100,7 +100,7 @@ export default apiInitializer((api) => {
           // initScriptTag.innerHTML = initScript;
           // document.body.appendChild(initScriptTag);
           setTimeout(() => {
-            const swiperElement = element.querySelector(".swiper");
+            const swiperElement = imgCarsls.querySelector(".swiper");
             if (swiperElement) {
               new Swiper(swiperElement, {
                 navigation: {
@@ -177,7 +177,7 @@ export default apiInitializer((api) => {
 
           // Use setTimeout or next tick to ensure the element is in DOM
           setTimeout(() => {
-            const splideElement = element.querySelector(`#splide-${allImgCarslsArr.indexOf(imgCarsls)}`);
+            const splideElement = imgCarsls.querySelector(`#splide-${allImgCarslsArr.indexOf(imgCarsls)}`);
             if (splideElement) {
               new Splide(splideElement, {
                 pagination: settings.show_pagination_buttons,
