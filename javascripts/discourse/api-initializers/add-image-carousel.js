@@ -13,7 +13,7 @@ export default apiInitializer((api) => {
       title: themePrefix("add_image_carousel"),
       perform: (e) => {
         e.applySurround(
-          `[wrap=${settings.carousel_software}]\n[wrap="carousel-image"]\n`,
+          `[wrap="Carousel"]\n[wrap="carousel-image"]\n`,
           "\n[/wrap]\n[/wrap]",
           "image_carousel_placeholder"
         );
@@ -22,7 +22,7 @@ export default apiInitializer((api) => {
   });
 
   api.decorateCookedElement((element) => {
-    let allImgCarsls = element.querySelectorAll('div[data-wrap="Swiper"]');
+    let allImgCarsls = element.querySelectorAll('div[data-wrap="Carousel"]');
     
     if (allImgCarsls !== null) {
       let allImgCarslsArr = [...allImgCarsls];
