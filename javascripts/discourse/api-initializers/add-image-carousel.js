@@ -28,20 +28,10 @@ export default apiInitializer((api) => {
       let allImgCarslsArr = [...allImgCarsls];
 
       // Iterate, in case there are multiple carousels in a single post
-      allImgCarslsArr.forEach(async function(imgCarsls) {
+      allImgCarslsArr.forEach((imgCarsls) => {
         let allImgDivs = imgCarsls.querySelectorAll('div[data-wrap="carousel-image"]');
         let allImgs = [];
-        let autoplay = await imgCarsls.dataset.autoplay; // Boolean, true or false
-        console.log(autoplay);
-        // Invalid data
-        if (autoplay) {
-          if (autoplay !== "true" || autoplay !== "false") {
-            autoplay = "true";
-          }
-  
-          // Set the boolean
-          autoplay = (autoplay === "true") ? true : false;
-        }
+        let autoplay = imgCarsls.dataset.autoplay === "true";
         
         if (allImgDivs !== null) {
           let allImgsDivsArr = [...allImgDivs];
