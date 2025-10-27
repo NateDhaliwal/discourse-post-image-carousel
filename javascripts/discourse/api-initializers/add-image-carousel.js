@@ -3,7 +3,7 @@ import I18n from "discourse-i18n";
 
 export default apiInitializer((api) => {
   const currentLocale = I18n.currentLocale();
-  I18n.translations[currentLocale].js.composer.image_carousel_placeholder = settings.image_carousel_placeholder;
+  I18n.translations[currentLocale].js.composer.image_carousel_placeholder = `<img src="${settings.image_carousel_placeholder}" height="200" width="300" />`;
 
   api.onToolbarCreate((toolbar) => {
     toolbar.addButton({
@@ -13,8 +13,9 @@ export default apiInitializer((api) => {
       title: themePrefix("add_image_carousel"),
       perform: (e) => {
         e.applySurround(
-          `[wrap="Carousel" autoplay=${settings.autoplay}]\n<img src="${settings.image_carousel_placeholder}" height="200" width="200" />`,
+          `[wrap="Carousel" autoplay=${settings.autoplay}]\n`,
           "\n[/wrap]",
+          "image_carousel_placeholder"
         );
       }
     });
