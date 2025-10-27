@@ -5,8 +5,8 @@ carousel_software:
     - "Splide"
 
 image_carousel_placeholder:
-  type: string
-  default: '<img src="https://placehold.co/400" />'
+  type: upload
+  default: "placeholder_image"
 
 show_pagination_buttons:
   type: bool
