@@ -128,9 +128,6 @@ export default apiInitializer((api) => {
                   slidesPerView: 'auto',
                   initialSlide: 1,
                   loop: settings.loop,
-                  autoplay: (autoplay) ? {
-                    delay: settings.autoplay_interval
-                  } : false,
                 });
                 swiperCode.controller.control = swiperThumb;
                 swiperThumb.controller.control = swiperCode;
