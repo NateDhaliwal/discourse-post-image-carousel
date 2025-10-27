@@ -121,7 +121,7 @@ export default apiInitializer((api) => {
               });
 
               if (swiperElementThumb) {
-                let swiperThumb = new Swiper(swiperElement, {
+                let swiperThumb = new Swiper(swiperElementThumb, {
                   centeredSlides: true,
                   spaceBetween: 10,
                   slidesPerView: 'auto',
