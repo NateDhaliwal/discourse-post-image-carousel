@@ -3,7 +3,7 @@ import I18n from "discourse-i18n";
 
 export default apiInitializer((api) => {
   const currentLocale = I18n.currentLocale();
-  I18n.translations[currentLocale].js.composer.image_carousel_placeholder = `<img src="${settings.image_carousel_placeholder}" height="200" width="300" />`;
+  I18n.translations[currentLocale].js.composer.image_carousel_placeholder = `<img src="${settings.image_carousel_placeholder}" height="${settings.image_carousel_placeholder_height}" width="${settings.image_carousel_placeholder_width}" />`;
 
   api.onToolbarCreate((toolbar) => {
     toolbar.addButton({
