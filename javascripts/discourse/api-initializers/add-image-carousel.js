@@ -106,7 +106,7 @@ export default apiInitializer((api) => {
           allImgs.forEach((img) => {
             imgCarslsContent += `
               <li class="splide__slide">
-                <img src="${img.attributes.getNamedItem('src').value}" height="${img.attributes.getNamedItem('height').value}" width="${img.attributes.getNamedItem('width').value}" />
+                <img src="${img.src}" height="${img.height}" width="${img.width}" />
               </li>
             `;
           });
