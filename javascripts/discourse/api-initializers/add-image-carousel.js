@@ -121,16 +121,18 @@ export default apiInitializer((api) => {
                 } : false,
               });
 
-              if (swiperElementThumb) {
+              if (settings.enable_thumbs) {
                 let swiperThumb = new Swiper(swiperElementThumb, {
                   centeredSlides: true,
                   spaceBetween: 10,
-                  slidesPerView: 'auto',
-                  initialSlide: 1,
+                  slidesPerView: 4,
                   loop: settings.loop,
                 });
                 swiperCode.controller.control = swiperThumb;
                 swiperThumb.controller.control = swiperCode;
+                swiperCode.on('slideChange', function() {
+                  swiperThumb.slideTo(swiperCode.activeIndex);
+                });
               }
             }
           }, 0);
