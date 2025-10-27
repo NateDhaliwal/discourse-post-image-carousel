@@ -1,8 +1,8 @@
 // Theme's SCSS
 @if $show-pagination-buttons == "true" {
   :root {
-    --swiper-pagination-bullet-inactive-color: var(#{$pagination-button-color}, #000);
-    --swiper-pagination-color: var(#{$active-pagination-button-color}, --swiper-theme-color);
+    --swiper-pagination-bullet-inactive-color: #{$pagination-button-color};
+    --swiper-pagination-color: #{$active-pagination-button-color};
   }
   
   .splide__pagination__page {
