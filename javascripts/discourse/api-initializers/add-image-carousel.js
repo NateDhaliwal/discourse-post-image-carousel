@@ -62,13 +62,15 @@ export default apiInitializer((api) => {
             <div class="swiper-wrapper">
           `
           allImgs.forEach((img) => {
+            // eslint-disable-next-line no-console
+            console.log(img);
             try {
               imgCarslsContent += `
                 <div class="swiper-slide">
                   <img src="${img.attributes.getNamedItem('src').value}" height="${img.attributes.getNamedItem('height').value}" width="${img.attributes.getNamedItem('width').value}" />
                 </div>
               `;
-            catch (e) {
+            } catch (e) {
               // eslint-disable-next-line no-console
               console.error(e);
             }
