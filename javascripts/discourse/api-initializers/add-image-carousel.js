@@ -51,7 +51,7 @@ export default apiInitializer((api) => {
             try {
               imgCarslsContent += `
                 <div class="swiper-slide">
-                  <img src="${img.src}" height="${img.height}" width="${img.width}" />
+                  <img src="${img.src}" height="100%" width="100%" />
                 </div>
               `;
             } catch (e) {
@@ -108,7 +108,7 @@ export default apiInitializer((api) => {
           allImgs.forEach((img) => {
             imgCarslsContent += `
               <li class="splide__slide">
-                <img src="${img.src}" height="${img.height}" width="${img.width}" />
+                <img src="${img.src}" height="100%" width="100%" />
               </li>
             `;
           });
