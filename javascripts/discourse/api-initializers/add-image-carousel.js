@@ -48,13 +48,13 @@ export default apiInitializer((api) => {
         }
 
         if (settings.carousel_software === "Swiper") {
-          let initScript = `
-          const swiper = new Swiper('.swiper', {
-            // Navigation arrows
-            navigation: {
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
-            },
+          // let initScript = `
+          // const swiper = new Swiper('.swiper', {
+          //   // Navigation arrows
+          //   navigation: {
+          //     nextEl: '.swiper-button-next',
+          //     prevEl: '.swiper-button-prev',
+          //   },
             
           `;
           let imgCarslsContent = `
