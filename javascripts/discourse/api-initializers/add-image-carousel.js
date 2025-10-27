@@ -55,7 +55,7 @@ export default apiInitializer((api) => {
               console.log(img.attributes.getNamedItem('src').value);
               imgCarslsContent += `
                 <div class="swiper-slide">
-                  <img src="${img.attributes.getNamedItem('src').value}" height="${img.attributes.getNamedItem('height').value}" width="${img.attributes.getNamedItem('width').value}" />
+                  <img src="${img.src}" height="${img.height}" width="${img.width}" />
                 </div>
               `;
             } catch (e) {
