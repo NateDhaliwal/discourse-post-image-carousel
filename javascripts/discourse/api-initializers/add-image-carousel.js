@@ -12,13 +12,8 @@ export default apiInitializer((api) => {
       icon: "images",
       title: themePrefix("add_image_carousel"),
       perform: (e) => {
-        // e.applySurround(
-        //   `[wrap="Carousel" autoplay=${settings.autoplay}]\n[wrap="carousel-image"]\n`,
-        //   "\n[/wrap]\n[/wrap]",
-        //   "image_carousel_placeholder"
-        // );
         e.applySurround(
-          `[wrap="Carousel" autoplay=${settings.autoplay}]`,
+          `[wrap="Carousel" autoplay=${settings.autoplay}]\n`,
           "\n[/wrap]",
           "image_carousel_placeholder"
         );
@@ -48,16 +43,6 @@ export default apiInitializer((api) => {
         }
 
         if (settings.carousel_software === "Swiper") {
-          // let initScript = `
-          // const swiper = new Swiper('.swiper', {
-          //   // Navigation arrows
-          //   navigation: {
-          //     nextEl: '.swiper-button-next',
-          //     prevEl: '.swiper-button-prev',
-          //   },
-          //   
-          // `;
-
           let imgCarslsContent = `
           <div class="swiper">
             <div class="swiper-wrapper">
@@ -65,7 +50,9 @@ export default apiInitializer((api) => {
           allImgs.forEach((img) => {
             // eslint-disable-next-line no-console
             console.log(img);
+            console.log(img.src);
             try {
+              console.log(img.attributes.getNamedItem('src').value);
               imgCarslsContent += `
                 <div class="swiper-slide">
                   <img src="${img.attributes.getNamedItem('src').value}" height="${img.attributes.getNamedItem('height').value}" width="${img.attributes.getNamedItem('width').value}" />
@@ -78,25 +65,6 @@ export default apiInitializer((api) => {
           });
             
           imgCarslsContent += "\n</div>";
-          // Old code
-          // if (settings.show_pagination_buttons) {
-          //   imgCarslsContent += "\n<div class='swiper-pagination'></div>";
-          //   initScript += `
-          //     // Pagination
-          //     pagination: {
-          //       el: '.swiper-pagination',
-          //       clickable: true
-          //     },
-          //   `;
-          //   if (settings.autoplay) {
-          //     initScript += `
-          //     autoplay: {
-          //       delay: ${settings.autoplay_interval}
-          //     }
-          //   });
-          //   `;
-          //   }
-          // }
 
           if (settings.show_pagination_buttons) {
             imgCarslsContent += `
@@ -113,9 +81,6 @@ export default apiInitializer((api) => {
           imgCarslsContent;
           imgCarsls.innerHTML = imgCarslsContent;
 
-          // const initScriptTag = document.createElement('script');
-          // initScriptTag.innerHTML = initScript;
-          // document.body.appendChild(initScriptTag);
           setTimeout(() => {
             const swiperElement = imgCarsls.querySelector(".swiper");
             if (swiperElement) {
@@ -153,44 +118,8 @@ export default apiInitializer((api) => {
             </div>
           </div>
           `
-          // Old code
-          // let initScript = ``;
-          
-          // if (settings.show_pagination_buttons) {
-          //   initScript += `
-          //     new Splide('#splide-${allImgCarslsArr.indexOf(imgCarsls)}', {
-          //       pagination: true,
-          //       arrows: true,
-          //       perPage: 1,
-          //       type: 'loop',
-          //   `;
-          //   if (settings.autoplay) {
-          //     initScript += `
-          //       autoplay: true,
-          //       interval: ${settings.autoplay_interval}
-          //     `;
-          //   }
-          // } else {
-          //   initScript += `
-          //     new Splide('#splide-${allImgCarslsArr.indexOf(imgCarsls)}', {
-          //       pagination: false,
-          //   `;
-          //   if (settings.autoplay) {
-          //     initScript += `
-          //       autoplay: true,
-          //       interval: ${settings.autoplay_interval}
-          //     `;
-          //   }
-          // }
 
-          // initScript += `
-          //   }).mount();
-          // `;
-          
           imgCarsls.innerHTML = imgCarslsContent;
-          // const initScriptTag = document.createElement('script');
-          // initScriptTag.innerHTML = initScript;
-          // document.body.appendChild(initScriptTag);
 
           // Use setTimeout or next tick to ensure the element is in DOM
           setTimeout(() => {
