@@ -8,15 +8,15 @@ image_carousel_placeholder:
   type: upload
   default: "placeholder_image"
 
-image_carousel_placeholder_height:
-  type: integer
-  default: 200
-  min: 1
+# image_carousel_placeholder_height:
+#   type: integer
+#   default: 200
+#   min: 1
 
-image_carousel_placeholder_width:
-  type: integer
-  default: 300
-  min: 1
+# image_carousel_placeholder_width:
+#   type: integer
+#   default: 300
+#   min: 1
 
 show_pagination_buttons:
   type: bool
