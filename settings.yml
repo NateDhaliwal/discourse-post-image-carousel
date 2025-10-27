@@ -26,8 +26,8 @@ loop:
 
 pagination_button_color:
   type: string
-  default: ""
+  default: "#000"
 
 active_pagination_button_color:
   type: string
-  default: ""
+  default: "#007aff"
