@@ -13,9 +13,8 @@ export default apiInitializer((api) => {
       title: themePrefix("add_image_carousel"),
       perform: (e) => {
         e.applySurround(
-          `[wrap="Carousel" autoplay=${settings.autoplay}]\n`,
+          `[wrap="Carousel" autoplay=${settings.autoplay}]\n<img src="${settings.image_carousel_placeholder}" height="200" width="200" />`,
           "\n[/wrap]",
-          "image_carousel_placeholder"
         );
       }
     });
