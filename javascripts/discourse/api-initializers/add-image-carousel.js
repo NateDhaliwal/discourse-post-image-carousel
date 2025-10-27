@@ -55,8 +55,9 @@ export default apiInitializer((api) => {
           //     nextEl: '.swiper-button-next',
           //     prevEl: '.swiper-button-prev',
           //   },
-            
-          `;
+          //   
+          // `;
+
           let imgCarslsContent = `
           <div class="swiper">
             <div class="swiper-wrapper">
