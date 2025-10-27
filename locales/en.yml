@@ -10,3 +10,5 @@ en:
       autoplay: "Autoplay carousels in posts; can be changed within each carousel"
       autoplay_interval: "The interval in miliseconds (ms) of the autoplay function in carousels"
       loop: "Loop the carousel when at the start/end"
+      pagination_button_color: "Button color for pagination buttons; if left blank, Splide/Swiper defaults will be used"
+      active_pagination_button_color: "Button color for active pagination buttons; if left blank, Splide/Swiper defaults will be used"
