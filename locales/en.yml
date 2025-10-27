@@ -6,7 +6,7 @@ en:
     settings:
       carousel_software: "Which software to use to make carousels"
       image_carousel_placeholder: "Placeholder for 1 image carousel's image"
-      show_pagination_buttons: "Whether to show pagination dots below the carousel to provide easier navigation between images"
+      show_pagination_buttons: "Show pagination dots below the carousel to provide easier navigation between images"
       autoplay: "Sets the default whether to autoplay carousels in posts; can be changed within each carousel"
       autoplay_interval: "The interval in miliseconds (ms) of the autoplay function in carousels"
       loop: "Loop the carousel when at the start/end"
