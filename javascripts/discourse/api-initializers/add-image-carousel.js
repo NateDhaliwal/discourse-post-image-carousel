@@ -125,7 +125,7 @@ export default apiInitializer((api) => {
                 let swiperThumb = new Swiper(swiperElementThumb, {
                   centeredSlides: true,
                   spaceBetween: 10,
-                  slidesPerView: 4,
+                  slidesPerView: allImgs.length,
                   loop: settings.loop,
                 });
                 swiperCode.controller.control = swiperThumb;
