@@ -30,4 +30,4 @@ pagination_button_color:
 
 active_pagination_button_color:
   type: string
-  default:s ""
+  default: ""
