@@ -47,6 +47,13 @@ export default apiInitializer((api) => {
           <div class="swiper" id="swiper-${allImgCarslsArr.indexOf(imgCarsls)}">
             <div class="swiper-wrapper">
           `
+          let imgCarslsThumb = ``;
+          if (settings.enable_thumbs) {
+            imgCarslsThumb = `
+            <div class="swiper" id="swiper-${allImgCarslsArr.indexOf(imgCarsls)}-thumb">
+              <div class="swiper-wrapper">
+            `
+          }
           allImgs.forEach((img) => {
             try {
               imgCarslsContent += `
@@ -54,6 +61,13 @@ export default apiInitializer((api) => {
                   <img src="${img.src}" height="100%" width="100%" />
                 </div>
               `;
+              if (settings.enable_thumbs) {
+                imgCarslsThumb += `
+                  <div class="swiper-slide">
+                    <img src="${img.src}" height="100%" width="100%" />
+                  </div>
+                `;
+              }
             } catch (e) {
               // eslint-disable-next-line no-console
               console.error(e);
@@ -61,6 +75,9 @@ export default apiInitializer((api) => {
           });
             
           imgCarslsContent += "\n</div>";
+          if (settings.enable_thumbs) {
+            imgCarslsThumb += "\n</div>";
+          }
 
           if (settings.show_pagination_buttons) {
             imgCarslsContent += `
@@ -71,16 +88,21 @@ export default apiInitializer((api) => {
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
             </div>
-            
           `;
-
-          imgCarslsContent;
-          imgCarsls.innerHTML = imgCarslsContent;
+          if (settings.enable_thumbs) {
+            imgCarsls.innerHTML = imgCarslsContent + imgCarslsThumb;
+          } else {
+            imgCarsls.innerHTML = imgCarslsContent;
+          }
 
           setTimeout(() => {
-           const swiperElement = imgCarsls.querySelector(`#swiper-${allImgCarslsArr.indexOf(imgCarsls)}`);
+            const swiperElement = imgCarsls.querySelector(`#swiper-${allImgCarslsArr.indexOf(imgCarsls)}`);
+            let swiperElementThumb;
+            if (settings.enable_thumbs) {
+              swiperElementThumb = imgCarsls.querySelector(`#swiper-${allImgCarslsArr.indexOf(imgCarsls)}-thumb`);
+            }
             if (swiperElement) {
-              new Swiper(swiperElement, {
+              let swiperCode = new Swiper(swiperElement, {
                 centeredSlides: true,
                 spaceBetween: 10,
                 slidesPerView: 1,
@@ -97,6 +119,20 @@ export default apiInitializer((api) => {
                   delay: settings.autoplay_interval
                 } : false,
               });
+
+              if (swiperElementThumb) {
+                let swiperThumb = new Swiper(swiperElement, {
+                  centeredSlides: true,
+                  spaceBetween: 10,
+                  slidesPerView: 'auto',
+                  loop: settings.loop,
+                  autoplay: (autoplay) ? {
+                    delay: settings.autoplay_interval
+                  } : false,
+                });
+                swiperCode.controller.control = swiperThumb;
+                swiperThumb.controller.control = swiperCode;
+              }
             }
           }, 0);
         } else {
