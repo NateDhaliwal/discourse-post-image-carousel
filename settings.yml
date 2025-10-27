@@ -24,10 +24,10 @@ loop:
   type: bool
   default: true
 
-pagination-button-color:
+pagination_button_color:
   type: string
   default: ""
 
-active-pagination-button-color:
+active_pagination_button_color:
   type: string
   default ""
