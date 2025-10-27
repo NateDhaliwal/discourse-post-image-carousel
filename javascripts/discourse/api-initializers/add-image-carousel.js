@@ -85,6 +85,7 @@ export default apiInitializer((api) => {
             const swiperElement = imgCarsls.querySelector(".swiper");
             if (swiperElement) {
               new Swiper(swiperElement, {
+                slidesPerView: 1,
                 navigation: {
                   nextEl: '.swiper-button-next',
                   prevEl: '.swiper-button-prev',
