@@ -6,10 +6,10 @@
   }
   
   .splide__pagination__page {
-    background-color: $pagination-button-color;
+    background-color: $pagination-button-color !important;
   }
   
   .splide__pagination__page.is-active {
-    background-color: $active-pagination-button-color;
+    background-color: $active-pagination-button-color !important;
   }
 }
