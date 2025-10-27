@@ -44,7 +44,7 @@ export default apiInitializer((api) => {
 
         if (settings.carousel_software === "Swiper") {
           let imgCarslsContent = `
-          <div class="swiper">
+          <div class="swiper" id="swiper-${allImgCarslsArr.indexOf(imgCarsls)}">
             <div class="swiper-wrapper">
           `
           allImgs.forEach((img) => {
@@ -78,7 +78,7 @@ export default apiInitializer((api) => {
           imgCarsls.innerHTML = imgCarslsContent;
 
           setTimeout(() => {
-            const swiperElement = imgCarsls.querySelector(".swiper");
+           const swiperElement = imgCarsls.querySelector(`#swiper-${allImgCarslsArr.indexOf(imgCarsls)}`);
             if (swiperElement) {
               new Swiper(swiperElement, {
                 centeredSlides: true,
