@@ -106,6 +106,7 @@ export default apiInitializer((api) => {
                 centeredSlides: true,
                 spaceBetween: 10,
                 slidesPerView: 1,
+                initialSlide: 1,
                 navigation: {
                   nextEl: '.swiper-button-next',
                   prevEl: '.swiper-button-prev',
@@ -125,6 +126,7 @@ export default apiInitializer((api) => {
                   centeredSlides: true,
                   spaceBetween: 10,
                   slidesPerView: 'auto',
+                  initialSlide: 1,
                   loop: settings.loop,
                   autoplay: (autoplay) ? {
                     delay: settings.autoplay_interval
