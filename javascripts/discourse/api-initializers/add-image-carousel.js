@@ -82,6 +82,7 @@ export default apiInitializer((api) => {
             if (swiperElement) {
               new Swiper(swiperElement, {
                 centeredSlides: true,
+                spaceBetween: 10,
                 slidesPerView: 1,
                 navigation: {
                   nextEl: '.swiper-button-next',
