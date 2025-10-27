@@ -23,3 +23,11 @@ autoplay_interval:
 loop:
   type: bool
   default: true
+
+pagination-button-color:
+  type: string
+  default: ""
+
+active-pagination-button-color:
+  type: string
+  default ""
