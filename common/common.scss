@@ -4,13 +4,13 @@
     @if $pagination-button-color != "" {
       --swiper-pagination-bullet-inactive-color: #{$pagination-button-color};
     } @else {
-      --swiper-pagination-bullet-inactive-color: #007aff;
+      --swiper-pagination-bullet-inactive-color: #000;
     }
     
     @if $active-pagination-button-color != "" {
       --swiper-pagination-color: #{$active-pagination-button-color};
     } @else {
-      --swiper-pagination-color: #000;
+      --swiper-pagination-color: #007aff;
     }
   }
   
