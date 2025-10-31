@@ -114,6 +114,7 @@ export default apiInitializer((api) => {
                   watchSlidesProgress: true,
                   watchOverflow: true,
                   loop: settings.loop,
+                  direction: settings.thumbs_direction,
                 });
                 let swiperCode = new Swiper(swiperElement, {
                   // centeredSlides: true,
