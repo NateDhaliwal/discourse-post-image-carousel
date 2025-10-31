@@ -108,8 +108,8 @@ export default apiInitializer((api) => {
                   spaceBetween: 10,
                   slidesPerView: 4,
                   freeMode: true,
-                  centeredSlides: true,
-                  centeredSlidesBounds: true,
+                  centeredSlides: !settings.thumbs_direction,
+                  centeredSlidesBounds: !settings.thumbs_direction,
                   watchSlidesVisibility: true,
                   watchSlidesProgress: true,
                   watchOverflow: true,
@@ -138,9 +138,8 @@ export default apiInitializer((api) => {
                 });
               } else {
                 let swiperCode = new Swiper(swiperElement, {
-                  centeredSlides: true,
+                  // centeredSlides: true,
                   spaceBetween: 10,
-                  slidesPerView: 1,
                   navigation: {
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
