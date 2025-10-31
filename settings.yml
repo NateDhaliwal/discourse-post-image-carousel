@@ -45,7 +45,6 @@ image_transition_animation:
     - "cube"
     - "fade"
     - "cards"
-    - "creative"
 
 pagination_button_color:
   type: string
