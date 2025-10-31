@@ -27,14 +27,13 @@
   div[data-wrap="Carousel"] {
     display: flex;
     flex-direction: row;
+  }
 
-    &:not(.swiper-thumbs) {
-      width: 80%;
-    }
+  div.swiper-horizontal:not(.swiper-thumbs) {
+    width: 75%;
   }
 
   div.swiper-thumbs.swiper-vertical {
-    width: 20%;
-    flex-flow: row nowrap;
+    width: 25%;
   }
 }
