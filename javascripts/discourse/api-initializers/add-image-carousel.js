@@ -111,28 +111,45 @@ export default apiInitializer((api) => {
                   watchSlidesProgress: true,
                   loop: settings.loop,
                 });
+                let swiperCode = new Swiper(swiperElement, {
+                  centeredSlides: true,
+                  spaceBetween: 10,
+                  slidesPerView: 1,
+                  navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                  },
+                  pagination: (settings.show_pagination_buttons) ? {
+                    el: '.swiper-pagination',
+                    clickable: true
+                  } : false,
+                  loop: settings.loop,
+                  autoplay: (autoplay) ? {
+                    delay: settings.autoplay_interval
+                  } : false,
+                  thumbs: {
+                    swiper: swiperThumb
+                  }
+                });
+              } else {
+                let swiperCode = new Swiper(swiperElement, {
+                  centeredSlides: true,
+                  spaceBetween: 10,
+                  slidesPerView: 1,
+                  navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                  },
+                  pagination: (settings.show_pagination_buttons) ? {
+                    el: '.swiper-pagination',
+                    clickable: true
+                  } : false,
+                  loop: settings.loop,
+                  autoplay: (autoplay) ? {
+                    delay: settings.autoplay_interval
+                  } : false,
+                });
               }
-
-              let swiperCode = new Swiper(swiperElement, {
-                centeredSlides: true,
-                spaceBetween: 10,
-                slidesPerView: 1,
-                navigation: {
-                  nextEl: '.swiper-button-next',
-                  prevEl: '.swiper-button-prev',
-                },
-                pagination: (settings.show_pagination_buttons) ? {
-                  el: '.swiper-pagination',
-                  clickable: true
-                } : false,
-                loop: settings.loop,
-                autoplay: (autoplay) ? {
-                  delay: settings.autoplay_interval
-                } : false,
-                thumbs: (settings.enable_thumbs) ? {
-                  swiper: swiperThumb
-                } : null
-              });
             }
           }, 0);
         } else {
