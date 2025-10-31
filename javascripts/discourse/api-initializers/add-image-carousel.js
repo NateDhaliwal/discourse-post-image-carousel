@@ -97,12 +97,9 @@ export default apiInitializer((api) => {
 
           setTimeout(() => {
             const swiperElement = imgCarsls.querySelector(`#swiper-${allImgCarslsArr.indexOf(imgCarsls)}`);
-            let swiperElementThumb;
-            if (settings.enable_thumbs) {
-              swiperElementThumb = imgCarsls.querySelector(`#swiper-${allImgCarslsArr.indexOf(imgCarsls)}-thumb`);
-            }
             if (swiperElement) {
               if (settings.enable_thumbs) {
+                const swiperElementThumb = imgCarsls.querySelector(`#swiper-${allImgCarslsArr.indexOf(imgCarsls)}-thumb`);
                 let swiperThumb = new Swiper(swiperElementThumb, {
                   loop: true,
                   spaceBetween: 10,
