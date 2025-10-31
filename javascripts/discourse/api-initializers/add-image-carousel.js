@@ -102,6 +102,17 @@ export default apiInitializer((api) => {
               swiperElementThumb = imgCarsls.querySelector(`#swiper-${allImgCarslsArr.indexOf(imgCarsls)}-thumb`);
             }
             if (swiperElement) {
+              if (settings.enable_thumbs) {
+                let swiperThumb = new Swiper(swiperElementThumb, {
+                  centeredSlides: true,
+                  spaceBetween: 10,
+                  slidesPerView: allImgs.length,
+                  freeMode: true,
+                  watchSlidesProgress: true,
+                  loop: settings.loop,
+                });
+              }
+
               let swiperCode = new Swiper(swiperElement, {
                 centeredSlides: true,
                 spaceBetween: 10,
@@ -118,21 +129,10 @@ export default apiInitializer((api) => {
                 autoplay: (autoplay) ? {
                   delay: settings.autoplay_interval
                 } : false,
+                thumbs: (settings.enable_thumbs) ? {
+                  swiper: swiperThumb
+                } : null
               });
-
-              if (settings.enable_thumbs) {
-                let swiperThumb = new Swiper(swiperElementThumb, {
-                  centeredSlides: true,
-                  spaceBetween: 10,
-                  slidesPerView: allImgs.length,
-                  loop: settings.loop,
-                });
-                swiperCode.controller.control = swiperThumb;
-                swiperThumb.controller.control = swiperCode;
-                swiperCode.on('slideChange', function() {
-                  swiperThumb.slideTo(swiperCode.activeIndex);
-                });
-              }
             }
           }, 0);
         } else {
