@@ -106,7 +106,7 @@ export default apiInitializer((api) => {
                 let swiperThumb = new Swiper(swiperElementThumb, {
                   centeredSlides: true,
                   spaceBetween: 10,
-                  slidesPerView: allImgs.length,
+                  slidesPerView: 4,
                   freeMode: true,
                   watchSlidesProgress: true,
                   loop: settings.loop,
@@ -114,7 +114,6 @@ export default apiInitializer((api) => {
                 let swiperCode = new Swiper(swiperElement, {
                   centeredSlides: true,
                   spaceBetween: 10,
-                  slidesPerView: 1,
                   navigation: {
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
