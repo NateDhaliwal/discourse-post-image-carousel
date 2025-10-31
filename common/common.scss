@@ -22,3 +22,18 @@
     background-color: $active-pagination-button-color !important;
   }
 }
+
+@if $thumbs_direction == "vertical" {
+  div[data-wrap="Carousel"] {
+    display: flex;
+    flex-direction: column;
+
+    &:not(.swiper-thumbs) {
+      width: 80%;
+    }
+    &.swiper-thumbs {
+      width: 20%;
+    }
+  }
+  
+}
