@@ -38,6 +38,15 @@ enable_thumbs:
   type: bool
   default: false
 
+image_transition_animation:
+  type: enum
+  default: "slide"
+  choices:
+    - "cube"
+    - "fade"
+    - "cards"
+    - "creative"
+
 pagination_button_color:
   type: string
   default: ""
