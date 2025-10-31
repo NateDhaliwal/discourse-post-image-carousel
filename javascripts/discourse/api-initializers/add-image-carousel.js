@@ -102,7 +102,8 @@ export default apiInitializer((api) => {
               swiperElementThumb = imgCarsls.querySelector(`#swiper-${allImgCarslsArr.indexOf(imgCarsls)}-thumb`);
             }
             if (swiperElement) {
-              if (settings.enable_thumbs) {
+              let enable_thumbs = settings.enable_thumbs && allImgs.length > 4;
+              if (enable_thumbs) {
                 let swiperThumb = new Swiper(swiperElementThumb, {
                   loop: true,
                   spaceBetween: 10,
