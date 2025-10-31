@@ -104,7 +104,7 @@ export default apiInitializer((api) => {
             if (swiperElement) {
               if (settings.enable_thumbs) {
                 let swiperThumb = new Swiper(swiperElementThumb, {
-                  centeredSlides: true,
+                  loop: true,
                   spaceBetween: 10,
                   slidesPerView: 4,
                   freeMode: true,
@@ -112,7 +112,7 @@ export default apiInitializer((api) => {
                   loop: settings.loop,
                 });
                 let swiperCode = new Swiper(swiperElement, {
-                  centeredSlides: true,
+                  // centeredSlides: true,
                   spaceBetween: 10,
                   navigation: {
                     nextEl: '.swiper-button-next',
