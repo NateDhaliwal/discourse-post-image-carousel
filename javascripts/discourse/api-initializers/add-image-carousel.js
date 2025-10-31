@@ -108,7 +108,11 @@ export default apiInitializer((api) => {
                   spaceBetween: 10,
                   slidesPerView: 4,
                   freeMode: true,
+                  centeredSlides: true,
+                  centeredSlidesBounds: true,
+                  watchSlidesVisibility: true,
                   watchSlidesProgress: true,
+                  watchOverflow: true,
                   loop: settings.loop,
                 });
                 let swiperCode = new Swiper(swiperElement, {
