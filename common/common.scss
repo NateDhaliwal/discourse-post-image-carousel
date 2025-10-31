@@ -27,7 +27,9 @@
   div[data-wrap="Carousel"] {
     display: flex;
     flex-direction: row;
+    align-items: stretch;
   }
+
 
   div.swiper-horizontal:not(.swiper-thumbs) {
     width: 75%;
@@ -35,5 +37,8 @@
 
   div.swiper-thumbs.swiper-vertical {
     width: 25%;
+    height: 100%;
+    box-sizing: border-box;
   }
+
 }
