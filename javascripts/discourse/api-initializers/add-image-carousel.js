@@ -106,7 +106,6 @@ export default apiInitializer((api) => {
                 let swiperThumb = new Swiper(swiperElementThumb, {
                   loop: true,
                   spaceBetween: 10,
-                  slidesPerView: 4,
                   freeMode: true,
                   centeredSlides: settings.thumbs_direction === "horizontal",
                   centeredSlidesBounds: settings.thumbs_direction === "horizontal",
