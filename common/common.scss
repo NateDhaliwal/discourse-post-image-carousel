@@ -31,9 +31,9 @@
     &:not(.swiper-thumbs) {
       width: 80%;
     }
-    &.swiper-thumbs {
-      width: 20%;
-    }
   }
-  
+
+  div.swiper-thumbs.swiper-vertical {
+    width: 20%;
+  }
 }
