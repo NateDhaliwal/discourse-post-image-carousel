@@ -42,5 +42,12 @@
     // height: 300px;
     box-sizing: border-box;
   }
-
+  .swiper-thumbs.swiper-vertical .swiper-slide {
+    height: calc(100% / 4); /* container height divided by slidesPerView */
+  }
+  .swiper-thumbs.swiper-vertical img {
+    object-fit: cover; /* prevents stretching */
+    width: 100%;
+    height: 100%;
+  }
 }
