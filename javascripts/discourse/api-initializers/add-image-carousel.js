@@ -138,7 +138,13 @@ export default apiInitializer((api) => {
                 });
 
                 if (settings.thumbs_direction === "vertical") {
+                  console.log("Height o: " + swiperElementThumb.height);
+                  console.log("Height o: " + swiperElementThumb.offsetHeight);
+                  console.log("Offset: " + swiperElement.offsetHeight);
+                  console.log("Height: " + swiperElement.height);
                   swiperElementThumb.height = swiperElement.offsetHeight;
+                  console.log("Height n: " + swiperElementThumb.height);
+                  console.log("Height n: " + swiperElementThumb.offsetHeight);
                 }
               } else {
                 let swiperCode = new Swiper(swiperElement, {
