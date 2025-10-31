@@ -139,7 +139,7 @@ export default apiInitializer((api) => {
                   console.log("Height o: " + swiperElementThumb.offsetHeight);
                   console.log("Offset: " + swiperElement.offsetHeight);
                   console.log("Height: " + swiperElement.style.height);
-                  swiperElementThumb.style.height = swiperElement.offsetHeight;
+                  swiperElementThumb.style.height = `${swiperElement.offsetHeight}px`;
                   console.log("Height n: " + swiperElementThumb.style.height);
                   console.log("Height n: " + swiperElementThumb.offsetHeight);
                 }
