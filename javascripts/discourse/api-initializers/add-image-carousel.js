@@ -136,6 +136,10 @@ export default apiInitializer((api) => {
                   },
                   effect: settings.image_transition_animation,
                 });
+
+                if (settings.thumbs_direction === "vertical") {
+                  swiperElementThumb.height = swiperElement.offsetHeight;
+                }
               } else {
                 let swiperCode = new Swiper(swiperElement, {
                   // centeredSlides: true,
