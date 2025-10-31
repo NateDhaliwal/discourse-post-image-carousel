@@ -132,7 +132,8 @@ export default apiInitializer((api) => {
                   } : false,
                   thumbs: {
                     swiper: swiperThumb
-                  }
+                  },
+                  effect: settings.image_transition_animation,
                 });
               } else {
                 let swiperCode = new Swiper(swiperElement, {
@@ -151,6 +152,7 @@ export default apiInitializer((api) => {
                   autoplay: (autoplay) ? {
                     delay: settings.autoplay_interval
                   } : false,
+                  effect: settings.image_transition_animation,
                 });
               }
             }
