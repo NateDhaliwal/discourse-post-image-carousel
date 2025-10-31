@@ -35,5 +35,6 @@
 
   div.swiper-thumbs.swiper-vertical {
     width: 20%;
+    flex-flow: row nowrap;
   }
 }
