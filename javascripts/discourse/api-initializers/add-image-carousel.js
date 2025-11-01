@@ -134,15 +134,27 @@ export default apiInitializer((api) => {
                   effect: settings.image_transition_animation,
                 });
 
+                // if (settings.thumbs_direction === "vertical") {
+                //   swiperElementThumb.style.height = `${swiperElement.offsetHeight}px`;
+                // }
                 if (settings.thumbs_direction === "vertical") {
-                  console.log("Height o: " + swiperElementThumb.style.height);
-                  console.log("Height o: " + swiperElementThumb.offsetHeight);
-                  console.log("Offset: " + swiperElement.offsetHeight);
-                  console.log("Height: " + swiperElement.style.height);
-                  swiperElementThumb.style.height = `${swiperElement.offsetHeight}px`;
-                  console.log("Height n: " + swiperElementThumb.style.height);
-                  console.log("Height n: " + swiperElementThumb.offsetHeight);
+                  const resizeThumbs = () => {
+                    const galleryRect = swiperElement.getBoundingClientRect();
+                    swiperElementThumb.style.height = `${galleryRect.height}px`;
+                  };
+                
+                  // Run once after init
+                  resizeThumbs();
+                
+                  // Re-run on image load (in case sizes change after load)
+                  swiperElement.querySelectorAll("img").forEach(img => {
+                    img.addEventListener("load", resizeThumbs);
+                  });
+                
+                  // Re-run on window resize for responsiveness
+                  window.addEventListener("resize", resizeThumbs);
                 }
+
               } else {
                 let swiperCode = new Swiper(swiperElement, {
                   // centeredSlides: true,
