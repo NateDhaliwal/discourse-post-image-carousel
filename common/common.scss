@@ -27,8 +27,9 @@
   div[data-wrap="Carousel"] {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
     overflow: hidden;
+    margin: 0;
+    padding: 0;
   }
 
 
@@ -50,4 +51,95 @@
   //   width: 100%;
   //   height: 100%;
   // }
+  
+  .swiper-container {
+    overflow: hidden;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 320px;
+  
+    &-wrapper {
+      display: flex;
+      flex-flow: row nowrap;
+      height: 100vh;
+      width: 100vw;
+    }
+  }
+  
+  .swiper-button {
+    &-next,
+    &-prev {
+      color: #000;
+    }
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-color: #fff;
+  
+    /* Center slide text vertically */
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+  
+    /* Slide content */
+    .description,
+    .title {
+      display: block;
+      opacity: 0;
+      transition: 0.5s ease 0.5s;
+    }
+  
+    &-active {
+      .description,
+      .title {
+        opacity: 1;
+      }
+      .title {
+        margin-bottom: 0.5rem;
+        font-size: 24px;
+        color: #000;
+        transition: opacity 0.5s ease 0.5s;
+      }
+      .description {
+        font-size: 16px;
+        color: #777;
+        transition: opacity 0.5s ease 0.75s;
+      }
+    }
+  }
+  
+  .swiper:not(.swiper-thumbs) {
+    position: relative;
+    width: 80%;
+    height: 100vh;
+    margin-right: 10px;
+  }
+  
+  .swiper-thumbs {
+    width: 20%;
+    height: 100vh;
+    padding: 0;
+  
+    .swiper-wrapper {
+      flex-direction: column;
+    }
+  
+    .swiper-slide {
+      flex-flow: column nowrap;
+      width: 100%;
+      height: 100%;
+      opacity: 0.75;
+      cursor: pointer;
+    }
+  
+    .swiper-slide-thumb-active {
+      opacity: 1;
+    }
+  }
+
 }
