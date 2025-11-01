@@ -44,13 +44,13 @@ export default apiInitializer((api) => {
 
         if (settings.carousel_software === "Swiper") {
           let imgCarslsContent = `
-          <div class="swiper swiper-container" id="swiper-${allImgCarslsArr.indexOf(imgCarsls)}">
+          <div class="swiper" id="swiper-${allImgCarslsArr.indexOf(imgCarsls)}">
             <div class="swiper-wrapper">
           `
           let imgCarslsThumb = ``;
           if (settings.enable_thumbs) {
             imgCarslsThumb = `
-            <div class="swiper swiper-container" id="swiper-${allImgCarslsArr.indexOf(imgCarsls)}-thumb">
+            <div class="swiper" id="swiper-${allImgCarslsArr.indexOf(imgCarsls)}-thumb">
               <div class="swiper-wrapper">
             `
           }
