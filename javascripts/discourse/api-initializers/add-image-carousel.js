@@ -138,7 +138,7 @@ export default apiInitializer((api) => {
                 if (settings.thumbs_direction === "vertical") {
                   console.log("Offset: " + swiperElement.offsetHeight + "px");
                   swiperElementThumb.style.setProperty('height', `${swiperElement.offsetHeight}px`, 'important');
-                  console.log("Thumb height: " + swiperElementThumb.style.height + "px !important");
+                  console.log("Thumb height: " + swiperElementThumb.style.height);
                 }
               } else {
                 let swiperCode = new Swiper(swiperElement, {
