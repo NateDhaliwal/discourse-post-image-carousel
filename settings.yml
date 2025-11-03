@@ -38,11 +38,11 @@ enable_thumbs:
   type: bool
   default: false
 
-thumbs_direction:
-  type: enum
-  default: "horizontal"
-  choices:
-    - "vertical"
+# thumbs_direction:
+#  type: enum
+#  default: "horizontal"
+#  choices:
+#    - "vertical"
 
 image_transition_animation:
   type: enum
