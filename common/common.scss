@@ -23,25 +23,25 @@
   }
 }
 
-@if $thumbs_direction == "vertical" {
-  div[data-wrap="Carousel"] {
-    display: flex;
-    flex-direction: row;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-  }
+// @if $thumbs_direction == "vertical" {
+//   div[data-wrap="Carousel"] {
+//     display: flex;
+//     flex-direction: row;
+//     overflow: hidden;
+//     margin: 0;
+//     padding: 0;
+//   }
 
 
-  div.swiper-horizontal:not(.swiper-thumbs) {
-    width: 75%;
-  }
+//   div.swiper-horizontal:not(.swiper-thumbs) {
+//     width: 75%;
+//   }
 
-  div.swiper-thumbs.swiper-vertical {
-    width: 25%;
-    // height: 518px;
-    box-sizing: border-box;
-  }
+//   div.swiper-thumbs.swiper-vertical {
+//     width: 25%;
+//     // height: 518px;
+//     box-sizing: border-box;
+//   }
   // .swiper-thumbs.swiper-vertical .swiper-slide {
   //   height: calc(100% / 4); /* container height divided by slidesPerView */
   // }
@@ -50,4 +50,4 @@
   //   width: 100%;
   //   height: 100%;
   // }
-}
+// }
