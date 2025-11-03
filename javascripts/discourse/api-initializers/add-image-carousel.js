@@ -102,17 +102,16 @@ export default apiInitializer((api) => {
                 const swiperElementThumb = imgCarsls.querySelector(`#swiper-${allImgCarslsArr.indexOf(imgCarsls)}-thumb`);
                 console.log(swiperElementThumb);
                 let swiperThumb = new Swiper(swiperElementThumb, {
-                  loop: true,
                   spaceBetween: 10,
                   slidesPerView: 3,
                   freeMode: true,
-                  centeredSlides: settings.thumbs_direction === "horizontal",
-                  centeredSlidesBounds: settings.thumbs_direction === "horizontal",
+                  centeredSlides: true, // settings.thumbs_direction === "horizontal",
+                  centeredSlidesBounds: true, // settings.thumbs_direction === "horizontal",
                   watchSlidesVisibility: true,
                   watchSlidesProgress: true,
                   watchOverflow: true,
                   loop: settings.loop,
-                  direction: settings.thumbs_direction,
+                  // direction: settings.thumbs_direction,
                 });
                 let swiperCode = new Swiper(swiperElement, {
                   // centeredSlides: true,
@@ -135,10 +134,10 @@ export default apiInitializer((api) => {
                   effect: settings.image_transition_animation,
                 });
 
-                if (settings.thumbs_direction === "vertical") {
-                  console.log("Offset: " + swiperElement.offsetHeight + "px");
-                  swiperElementThumb.style.setProperty('height', `${swiperElement.offsetHeight}px`, 'important');
-                  console.log("Thumb height: " + swiperElementThumb.style.height);
+                // if (settings.thumbs_direction === "vertical") {
+                //   console.log("Offset: " + swiperElement.offsetHeight + "px");
+                //   swiperElementThumb.style.setProperty('height', `${swiperElement.offsetHeight}px`, 'important');
+                //   console.log("Thumb height: " + swiperElementThumb.style.height);
                 }
               } else {
                 let swiperCode = new Swiper(swiperElement, {
