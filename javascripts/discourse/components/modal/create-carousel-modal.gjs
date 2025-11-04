@@ -21,7 +21,7 @@ export default class CreateCarouselModal extends Component {
   }
 
   <template>
-    <DModal @closeModal={{@closeModal}}>
+    <DModal @title={{i18n (themePrefix "carousel.modal.title")}} @closeModal={{@closeModal}}>
       <:body>
         <Form @onSubmit={{this.handleSubmit}} as |form|>
         <form.Field
