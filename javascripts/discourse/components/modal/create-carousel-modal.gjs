@@ -14,11 +14,53 @@ export default class CreateCarouselModal extends Component {
 
   @action
   handleSubmit(data) {
-    
+    console.log(data.enable_thumbs);
+    console.log(data.enable_loop);
+    console.log(data.enable_autoplay);
+    this.args.closeModal();
   }
 
   <template>
     <DModal @closeModal={{@closeModal}}>
-    </DModal
+      <:body>
+        <Form @onSubmit={{this.handleSubmit}} as |form|>
+        <form.Field
+          @name="enable_thumbs"
+          @title="Enable thumbs"
+          @validation="required"
+          @type="toggle"
+          as |field|
+        >
+          <field.Input />
+        </form.Field>
+
+        <form.Field
+          @name="enable_loop"
+          @title="Enable loop"
+          @validation="required"
+          @type="toggle"
+          as |field|
+        >
+          <field.Input />
+        </form.Field>
+
+        <form.Field
+          @name="enable_autoplay"
+          @title="Enable autoplay"
+          @validation="required"
+          @type="toggle"
+          as |field|
+        >
+          <field.Input />
+        </form.Field>
+  
+        <form.Field @name="age" @title="Age" as |field|>
+          <field.Input @type="number" />
+        </form.Field>
+  
+        <form.Submit />
+      </Form>
+      </:body>
+    </DModal>
   </template>
 }
