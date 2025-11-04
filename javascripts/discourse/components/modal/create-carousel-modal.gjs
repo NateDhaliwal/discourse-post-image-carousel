@@ -19,6 +19,7 @@ export default class CreateCarouselModal extends Component {
 
   @action
   handleSubmit(data) {
+    console.log(data);
     const toolbarEvent = this.args.model.toolbarEvent;
     toolbarEvent.applySurround(
       `[wrap="Carousel" autoplay=${data.enable_autoplay} interval=${(data.enable_autoplay && data.autoplay_interval > 1) ? data.autoplay_interval : false} loop=${data.enable_loop}]\n`,
