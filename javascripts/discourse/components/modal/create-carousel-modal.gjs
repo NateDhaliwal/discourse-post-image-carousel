@@ -28,33 +28,30 @@ export default class CreateCarouselModal extends Component {
           @name="enable_thumbs"
           @title="Enable thumbs"
           @validation="required"
-          @type="toggle"
           as |field|
         >
-          <field.Input />
+          <field.Toggle />
         </form.Field>
 
         <form.Field
           @name="enable_loop"
           @title="Enable loop"
           @validation="required"
-          @type="toggle"
           as |field|
         >
-          <field.Input />
+          <field.Toggle />
         </form.Field>
 
         <form.Field
           @name="enable_autoplay"
           @title="Enable autoplay"
           @validation="required"
-          @type="toggle"
           as |field|
         >
-          <field.Input />
+          <field.Toggle />
         </form.Field>
   
-        <form.Field @name="age" @title="Age" as |field|>
+        <form.Field @name="autoplay_interval" @title="Autoplay interval" as |field|>
           <field.Input @type="number" />
         </form.Field>
   
