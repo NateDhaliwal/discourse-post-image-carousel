@@ -20,9 +20,11 @@ export default apiInitializer((api) => {
       //     "image_carousel_placeholder"
       //   );
       // }
-      action: () => {
+      action: (event) => {
         const modal = api.container.lookup("service:modal");
-        modal.show(CreateCarouselModal);
+        modal.show(CreateCarouselModal, {
+          model: { toolbarEvent: event },
+        });
       }
     });
   });
