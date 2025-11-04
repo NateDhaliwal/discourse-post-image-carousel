@@ -69,13 +69,13 @@ export default apiInitializer((api) => {
             try {
               imgCarslsContent += `
                 <div class="swiper-slide">
-                  <img src="${img.src}" height="100%" width="100%" />
+                  <img src="${img.src}" height="100%" width="100%"/>
                 </div>
               `;
               if (enable_thumbs) {
                 imgCarslsThumb += `
                   <div class="swiper-slide">
-                    <img src="${img.src}" height="100%" width="100%" />
+                    <img src="${img.src}" height="100%" width="100%" style="aspect-ratio: 0;" />
                   </div>
                 `;
               }
