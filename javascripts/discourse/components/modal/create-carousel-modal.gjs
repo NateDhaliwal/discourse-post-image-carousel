@@ -21,7 +21,7 @@ export default class CreateCarouselModal extends Component {
   handleSubmit(data) {
     const toolbarEvent = this.args.model.toolbarEvent;
     toolbarEvent.applySurround(
-      `[wrap="Carousel" autoplay=${data.autoplay} interval=${(data.autoplay && data.autoplay_interval > 1) ? data.autoplay_interval : false} loop=${data.loop}]\n`,
+      `[wrap="Carousel" autoplay=${data.enable_autoplay} interval=${(data.enable_autoplay && data.autoplay_interval > 1) ? data.autoplay_interval : false} loop=${data.enable_loop}]\n`,
       "\n[/wrap]",
       "image_carousel_placeholder"
     );
