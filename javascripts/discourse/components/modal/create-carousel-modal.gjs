@@ -16,4 +16,9 @@ export default class CreateCarouselModal extends Component {
   handleSubmit(data) {
     
   }
+
+  <template>
+    <DModal @closeModal={{@closeModal}}>
+    </DModal
+  </template>
 }
