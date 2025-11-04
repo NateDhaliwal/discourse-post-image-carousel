@@ -28,7 +28,6 @@ export default class CreateCarouselModal extends Component {
         <form.Field
           @name="enable_thumbs"
           @title="Enable thumbs"
-          @validation="required"
           as |field|
         >
           <field.Toggle />
@@ -37,7 +36,6 @@ export default class CreateCarouselModal extends Component {
         <form.Field
           @name="enable_loop"
           @title="Enable loop"
-          @validation="required"
           as |field|
         >
           <field.Toggle />
@@ -46,7 +44,6 @@ export default class CreateCarouselModal extends Component {
         <form.Field
           @name="enable_autoplay"
           @title="Enable autoplay"
-          @validation="required"
           as |field|
         >
           <field.Toggle />
