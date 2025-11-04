@@ -138,7 +138,7 @@ export default apiInitializer((api) => {
                 //   console.log("Offset: " + swiperElement.offsetHeight + "px");
                 //   swiperElementThumb.style.setProperty('height', `${swiperElement.offsetHeight}px`, 'important');
                 //   console.log("Thumb height: " + swiperElementThumb.style.height);
-                }
+                // }
               } else {
                 let swiperCode = new Swiper(swiperElement, {
                   // centeredSlides: true,
