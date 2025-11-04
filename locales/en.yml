@@ -1,5 +1,8 @@
 en:
   add_image_carousel: "Add image carousel"
+  carousel:
+    modal:
+      modal_title: "Add carousel"
 
   theme_metadata:
     description: "This Theme Component allows image carousels to be added within posts."
