@@ -22,7 +22,7 @@ export default class CreateCarouselModal extends Component {
     console.log(data);
     const toolbarEvent = this.args.model.toolbarEvent;
     toolbarEvent.applySurround(
-      `[wrap="Carousel" autoplay=${data.enable_autoplay?} interval=${(data.enable_autoplay? && data.autoplay_interval? > 1) ? data.autoplay_interval : false} loop=${data.enable_loop?}]\n`,
+      `[wrap="Carousel" autoplay=${data.enable_autoplay?} interval=${(data.enable_autoplay? && data.autoplay_interval? > 1) ? data.autoplay_interval : false} loop=${data.enable_loop?} thumbs=${data.enable_thumbs?}]\n`,
       "\n[/wrap]",
       "image_carousel_placeholder"
     );
@@ -35,7 +35,7 @@ export default class CreateCarouselModal extends Component {
         <Form @onSubmit={{this.handleSubmit}} as |form|>
         <form.Field
           @name="enable_thumbs"
-          @title="Enable thumbs"
+          @title="Enable thumbnails"
           as |field|
         >
           <field.Toggle />
