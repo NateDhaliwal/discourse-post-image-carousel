@@ -1,6 +1,8 @@
 import { apiInitializer } from "discourse/lib/api";
 import I18n from "discourse-i18n";
 
+import CreateCarouselModal from "../components/modal/create-carousel-modal";
+
 export default apiInitializer((api) => {
   const currentLocale = I18n.currentLocale();
   I18n.translations[currentLocale].js.composer.image_carousel_placeholder = `<img src="${settings.image_carousel_placeholder}" height="${settings.image_carousel_placeholder_height}" width="${settings.image_carousel_placeholder_width}" />`;
@@ -11,12 +13,16 @@ export default apiInitializer((api) => {
       group: "extras",
       icon: "images",
       title: themePrefix("add_image_carousel"),
-      perform: (e) => {
-        e.applySurround(
-          `[wrap="Carousel" autoplay=${settings.autoplay}]\n`,
-          "\n[/wrap]",
-          "image_carousel_placeholder"
-        );
+      // perform: (toolbarEvent) => {
+      //   e.applySurround(
+      //     `[wrap="Carousel" autoplay=${settings.autoplay}]\n`,
+      //     "\n[/wrap]",
+      //     "image_carousel_placeholder"
+      //   );
+      // }
+      action: () => {
+        const modal = api.container.lookup("service:modal");
+        modal.show(CreateCarouselModal);
       }
     });
   });
