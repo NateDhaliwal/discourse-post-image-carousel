@@ -40,7 +40,10 @@ export default apiInitializer((api) => {
         // let allImgDivs = imgCarsls.querySelectorAll('div[data-wrap="carousel-image"]');
         let allImgDivs = imgCarsls.querySelectorAll('img');
         let allImgs = [];
-        let autoplay = imgCarsls.dataset.autoplay === "true";
+        let enable_autoplay = imgCarsls.dataset.autoplay === "true";
+        let autoplay_interval = imgCarsls.dataset.interval;
+        let enable_thumbs = imgCarsls.dataset.thumbs === "true";
+        let enable_loop = imgCarsls.dataset.thumbs === "true";
         
         if (allImgDivs !== null) {
           let allImgsDivsArr = [...allImgDivs];
@@ -56,7 +59,7 @@ export default apiInitializer((api) => {
             <div class="swiper-wrapper">
           `
           let imgCarslsThumb = ``;
-          if (settings.enable_thumbs) {
+          if (enable_thumbs) {
             imgCarslsThumb = `
             <div class="swiper" id="swiper-${allImgCarslsArr.indexOf(imgCarsls)}-thumb">
               <div class="swiper-wrapper">
@@ -69,7 +72,7 @@ export default apiInitializer((api) => {
                   <img src="${img.src}" height="100%" width="100%" />
                 </div>
               `;
-              if (settings.enable_thumbs) {
+              if (enable_thumbs) {
                 imgCarslsThumb += `
                   <div class="swiper-slide">
                     <img src="${img.src}" height="100%" width="100%" />
@@ -83,7 +86,7 @@ export default apiInitializer((api) => {
           });
             
           imgCarslsContent += "\n</div>";
-          if (settings.enable_thumbs) {
+          if (enable_thumbs) {
             imgCarslsThumb += "\n</div>";
           }
 
@@ -97,7 +100,7 @@ export default apiInitializer((api) => {
             <div class="swiper-button-next"></div>
             </div>
           `;
-          if (settings.enable_thumbs) {
+          if (enable_thumbs) {
             imgCarsls.innerHTML = imgCarslsContent + imgCarslsThumb;
           } else {
             imgCarsls.innerHTML = imgCarslsContent;
@@ -108,7 +111,7 @@ export default apiInitializer((api) => {
             if (swiperElement) {
               if (settings.enable_thumbs) {
                 const swiperElementThumb = imgCarsls.querySelector(`#swiper-${allImgCarslsArr.indexOf(imgCarsls)}-thumb`);
-                console.log(swiperElementThumb);
+                // console.log(swiperElementThumb);
                 let swiperThumb = new Swiper(swiperElementThumb, {
                   spaceBetween: 10,
                   slidesPerView: 3,
@@ -118,7 +121,7 @@ export default apiInitializer((api) => {
                   watchSlidesVisibility: true,
                   watchSlidesProgress: true,
                   watchOverflow: true,
-                  loop: settings.loop,
+                  loop: enable_loop,
                   // direction: settings.thumbs_direction,
                 });
                 let swiperCode = new Swiper(swiperElement, {
@@ -132,9 +135,9 @@ export default apiInitializer((api) => {
                     el: '.swiper-pagination',
                     clickable: true
                   } : false,
-                  loop: settings.loop,
-                  autoplay: (autoplay) ? {
-                    delay: settings.autoplay_interval
+                  loop: enable_loop,
+                  autoplay: (enable_autoplay) ? {
+                    delay: autoplay_interval
                   } : false,
                   thumbs: {
                     swiper: swiperThumb
@@ -159,9 +162,9 @@ export default apiInitializer((api) => {
                     el: '.swiper-pagination',
                     clickable: true
                   } : false,
-                  loop: settings.loop,
-                  autoplay: (autoplay) ? {
-                    delay: settings.autoplay_interval
+                  loop: enable_loop,
+                  autoplay: (enable_autoplay) ? {
+                    delay: autoplay_interval
                   } : false,
                   effect: settings.image_transition_animation,
                 });
@@ -197,9 +200,9 @@ export default apiInitializer((api) => {
                 pagination: settings.show_pagination_buttons,
                 arrows: true,
                 perPage: 1,
-                type: settings.loop ? 'loop' : 'slide',
-                autoplay: autoplay,
-                interval: settings.autoplay_interval
+                type: enable_loop ? 'loop' : 'slide',
+                autoplay: enable_autoplay,
+                interval: autoplay_interval
               }).mount();
             }
           }, 0);
