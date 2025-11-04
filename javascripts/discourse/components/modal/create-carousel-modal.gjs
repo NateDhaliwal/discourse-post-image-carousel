@@ -10,8 +10,6 @@ import Form from "discourse/components/form";
 import { i18n, I18n } from "discourse-i18n";
 
 export default class CreateCarouselModal extends Component {
-  @service appEvents;
-
   const currentLocale = I18n.currentLocale();
   I18n.translations[currentLocale].js.composer.image_carousel_placeholder = `<img src="${settings.image_carousel_placeholder}" />`;
 
