@@ -12,10 +12,17 @@ import { i18n, I18n } from "discourse-i18n";
 export default class CreateCarouselModal extends Component {
   @service appEvents;
 
+  const currentLocale = I18n.currentLocale();
+  I18n.translations[currentLocale].js.composer.image_carousel_placeholder = `<img src="${settings.image_carousel_placeholder}" />`;
+
   @action
   handleSubmit(data) {
     const toolbarEvent = this.args.model.toolbarEvent;
-    toolbarEvent.applySurround();
+    toolbarEvent.applySurround(
+      `[wrap="Carousel" autoplay=${data.autoplay} interval=${(data.autoplay && data.autoplay_interval > 1) ? data.autoplay_interval : false} loop=${data.loop}]\n`,
+      "\n[/wrap]",
+      "image_carousel_placeholder"
+    );
     this.args.closeModal();
   }
 
