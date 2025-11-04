@@ -22,21 +22,21 @@ show_pagination_buttons:
   type: bool
   default: true
 
-autoplay:
-  type: bool
-  default: true
+# autoplay:
+#   type: bool
+#   default: true
 
-autoplay_interval:
-  type: integer
-  default: 5000
+# autoplay_interval:
+#   type: integer
+#   default: 5000
 
-loop:
-  type: bool
-  default: true
+# loop:
+#   type: bool
+#   default: true
 
-enable_thumbs:
-  type: bool
-  default: false
+# enable_thumbs:
+#   type: bool
+#   default: false
 
 # thumbs_direction:
 #  type: enum
