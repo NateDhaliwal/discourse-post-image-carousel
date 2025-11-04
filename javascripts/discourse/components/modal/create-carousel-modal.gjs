@@ -7,17 +7,15 @@ import { service } from "@ember/service";
 import DModal from "discourse/components/d-modal";
 import DButton from "discourse/components/d-button";
 import Form from "discourse/components/form";
-import { i18n } from "discourse-i18n";
+import { i18n, I18n } from "discourse-i18n";
 
 export default class CreateCarouselModal extends Component {
   @service appEvents;
 
   @action
   handleSubmit(data) {
-    console.log(data.enable_thumbs);
-    console.log(data.enable_loop);
-    console.log(data.enable_autoplay);
-    console.log(this.args.model.toolbarEvent);
+    const toolbarEvent = this.args.model.toolbarEvent;
+    toolbarEvent.applySurround();
     this.args.closeModal();
   }
 
