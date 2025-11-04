@@ -17,6 +17,7 @@ export default class CreateCarouselModal extends Component {
     console.log(data.enable_thumbs);
     console.log(data.enable_loop);
     console.log(data.enable_autoplay);
+    console.log(this.args.model.toolbarEvent);
     this.args.closeModal();
   }
 
