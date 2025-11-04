@@ -7,7 +7,7 @@ import { service } from "@ember/service";
 import DModal from "discourse/components/d-modal";
 import DButton from "discourse/components/d-button";
 import Form from "discourse/components/form";
-import { I18n as I18n_obj } from "discourse-i18n";
+import I18n as I18n_obj from "discourse-i18n";
 import { i18n } from "discourse-i18n";
 
 export default class CreateCarouselModal extends Component {
