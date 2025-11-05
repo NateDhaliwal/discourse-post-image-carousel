@@ -17,7 +17,6 @@ export default class CreateCarouselModal extends Component {
 
   @action
   handleSubmit(data) {
-    console.log(data);
     const toolbarEvent = this.args.model.toolbarEvent;
     if (settings.carousel_software === "Splide") {
       toolbarEvent.applySurround(
