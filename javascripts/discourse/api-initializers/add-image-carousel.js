@@ -3,9 +3,19 @@ import I18n from "discourse-i18n";
 
 import CreateCarouselModal from "../components/modal/create-carousel-modal";
 
+
+function addElement(name, classes, id) {
+  const element = document.createElement(name);
+  classes.forEach((className) => {
+    element.classList.add(className);
+  });
+  element.id = id;
+  return element;
+}
+
 export default apiInitializer((api) => {
-  const currentLocale = I18n.currentLocale();
-  I18n.translations[currentLocale].js.composer.image_carousel_placeholder = `<img src="${settings.image_carousel_placeholder}" height="${settings.image_carousel_placeholder_height}" width="${settings.image_carousel_placeholder_width}" />`;
+  // const currentLocale = I18n.currentLocale();
+  // I18n.translations[currentLocale].js.composer.image_carousel_placeholder = `<img src="${settings.image_carousel_placeholder}" height="${settings.image_carousel_placeholder_height}" width="${settings.image_carousel_placeholder_width}" />`;
 
   api.onToolbarCreate((toolbar) => {
     toolbar.addButton({
@@ -13,13 +23,6 @@ export default apiInitializer((api) => {
       group: "extras",
       icon: "images",
       title: themePrefix("add_image_carousel"),
-      // perform: (toolbarEvent) => {
-      //   e.applySurround(
-      //     `[wrap="Carousel" autoplay=${settings.autoplay}]\n`,
-      //     "\n[/wrap]",
-      //     "image_carousel_placeholder"
-      //   );
-      // }
       action: (event) => {
         const modal = api.container.lookup("service:modal");
         modal.show(CreateCarouselModal, {
@@ -37,7 +40,6 @@ export default apiInitializer((api) => {
 
       // Iterate, in case there are multiple carousels in a single post
       allImgCarslsArr.forEach((imgCarsls) => {
-        // let allImgDivs = imgCarsls.querySelectorAll('div[data-wrap="carousel-image"]');
         let allImgDivs = imgCarsls.querySelectorAll('img');
         let allImgs = [];
         let enable_autoplay = imgCarsls.dataset.autoplay === "true";
@@ -48,16 +50,17 @@ export default apiInitializer((api) => {
         if (allImgDivs !== null) {
           let allImgsDivsArr = [...allImgDivs];
           allImgsDivsArr.forEach((imgDiv) => {
-            // allImgs.push(imgDiv.querySelectorAll('img')[0]); // Get the 1st image. Currently only supports 1 image per imgDiv
             allImgs.push(imgDiv);
           });
         }
 
         if (settings.carousel_software === "Swiper") {
-          let imgCarslsContent = `
-          <div class="swiper" id="swiper-${allImgCarslsArr.indexOf(imgCarsls)}">
-            <div class="swiper-wrapper">
-          `
+          let imgCarslsContent = addElement("div", ["swiper"], `swiper-${allImgCarslsArr.indexOf(imgCarsls)}`);
+          let imgCarslsContentWrapper = addElement("div", ["swiper-wrapper"], "");
+          // let imgCarslsContent = `
+          // <div class="swiper" id="swiper-${allImgCarslsArr.indexOf(imgCarsls)}">
+          //   <div class="swiper-wrapper">
+          // `
           let imgCarslsThumb = ``;
           if (enable_thumbs) {
             imgCarslsThumb = `
