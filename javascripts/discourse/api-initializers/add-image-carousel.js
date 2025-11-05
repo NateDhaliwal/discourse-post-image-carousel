@@ -109,7 +109,7 @@ export default apiInitializer((api) => {
           setTimeout(() => {
             const swiperElement = imgCarsls.querySelector(`#swiper-${allImgCarslsArr.indexOf(imgCarsls)}`);
             if (swiperElement) {
-              if (settings.enable_thumbs) {
+              if (enable_thumbs) {
                 const swiperElementThumb = imgCarsls.querySelector(`#swiper-${allImgCarslsArr.indexOf(imgCarsls)}-thumb`);
                 // console.log(swiperElementThumb);
                 let swiperThumb = new Swiper(swiperElementThumb, {
