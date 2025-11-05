@@ -77,7 +77,9 @@ export default apiInitializer((api) => {
               let imgElement = addElement("img", [], "");
               let slide = addElement("div", ["swiper-slide"], "");
               slide.appendChild(imgElement);
+              console.log(slide);
               imgCarslsContentWrapper.appendChild(slide);
+              console.log(imgCarslsContentWrapper);
               // imgCarslsContent += `
               //   <div class="swiper-slide">
               //     <img src="${img.src}" height="100%" width="100%"/>
@@ -126,10 +128,12 @@ export default apiInitializer((api) => {
           // `;
           if (enable_thumbs) {
             // imgCarsls.innerHTML = imgCarslsContent + imgCarslsThumb;
+            imgCarsls.innerHTML = "";
             imgCarsls.appendChild(imgCarslsContent);
             imgCarsls.appendChild(imgCarslsThumb);
           } else {
             // imgCarsls.innerHTML = imgCarslsContent;
+            imgCarsls.innerHTML = "";
             imgCarsls.appendChild(imgCarslsContent);
           }
 
