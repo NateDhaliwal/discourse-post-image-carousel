@@ -3,7 +3,6 @@ import I18n from "discourse-i18n";
 
 import CreateCarouselModal from "../components/modal/create-carousel-modal";
 
-
 function addElement(name, classes, id) {
   const element = document.createElement(name);
   classes.forEach((className) => {
@@ -61,26 +60,34 @@ export default apiInitializer((api) => {
           // <div class="swiper" id="swiper-${allImgCarslsArr.indexOf(imgCarsls)}">
           //   <div class="swiper-wrapper">
           // `
-          let imgCarslsThumb = ``;
+          let imgCarslsThumb;
+          // let imgCarslsThumb = ``;
           if (enable_thumbs) {
-            imgCarslsThumb = `
-            <div class="swiper" id="swiper-${allImgCarslsArr.indexOf(imgCarsls)}-thumb">
-              <div class="swiper-wrapper">
-            `
+            imgCarslsThumb = addElement("div", ["swiper"], `swiper-${allImgCarslsArr.indexOf(imgCarsls)}-thumb`);
+            imgCarslsThumbContentWrapper = addElement("div", ["swiper-wrapper"], "");
+            // imgCarslsThumb = `
+            // <div class="swiper" id="swiper-${allImgCarslsArr.indexOf(imgCarsls)}-thumb">
+            //   <div class="swiper-wrapper">
+            // `
           }
           allImgs.forEach((img) => {
             try {
-              imgCarslsContent += `
-                <div class="swiper-slide">
-                  <img src="${img.src}" height="100%" width="100%"/>
-                </div>
-              `;
+              let imgElement = addElement("img", [], "");
+              let slide = addElement("div", ["swiper-slide"], "");
+              slide.appendChild(imgElement);
+              imgCarslsContentWrapper.appendChild(slide);
+              // imgCarslsContent += `
+              //   <div class="swiper-slide">
+              //     <img src="${img.src}" height="100%" width="100%"/>
+              //   </div>
+              // `;
               if (enable_thumbs) {
-                imgCarslsThumb += `
-                  <div class="swiper-slide">
-                    <img src="${img.src}" height="100%" width="100%" style="aspect-ratio: 0;" />
-                  </div>
-                `;
+                // imgCarslsThumb += `
+                //   <div class="swiper-slide">
+                //     <img src="${img.src}" height="100%" width="100%" style="aspect-ratio: 0;" />
+                //   </div>
+                // `;
+                imgCarslsThumbContentWrapper.apendChild(slide);
               }
             } catch (e) {
               // eslint-disable-next-line no-console
@@ -88,25 +95,38 @@ export default apiInitializer((api) => {
             }
           });
             
-          imgCarslsContent += "\n</div>";
-          if (enable_thumbs) {
-            imgCarslsThumb += "\n</div>";
-          }
+          // imgCarslsContent += "\n</div>";
+          // if (enable_thumbs) {
+          //   imgCarslsThumb += "\n</div>";
+          // }
+
+          imgCarslsContent.appendChild(imgCarslsContentWrapper);
+          imgCarslsThumb.appendChild(imgCarslsThumbContentWrapper);
 
           if (settings.show_pagination_buttons) {
-            imgCarslsContent += `
-            <div class="swiper-pagination"></div>
-            `;
+            let paginationDiv = addElement("div", ["swiper=pagination"], "");
+            imgCarslsContent.appendChild(paginationDiv);
+            // imgCarslsContent += `
+            // <div class="swiper-pagination"></div>
+            // `;
           }
-          imgCarslsContent += `
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-            </div>
-          `;
+
+          let prevArrow = addElement("div", ["swiper-button-prev"], "");
+          let nextArrow = addElement("div", ["swiper-button-next"], "");
+          imgCarslsContent.appendChild(prevArrow);
+          imgCarslsContent.appendChild(nextArrow);
+          // imgCarslsContent += `
+          //   <div class="swiper-button-prev"></div>
+          //   <div class="swiper-button-next"></div>
+          //   </div>
+          // `;
           if (enable_thumbs) {
-            imgCarsls.innerHTML = imgCarslsContent + imgCarslsThumb;
+            // imgCarsls.innerHTML = imgCarslsContent + imgCarslsThumb;
+            imgCarsls.appendChild(imgCarslsContent);
+            imgCarsls.appendChild(imgCarslsThumb);
           } else {
-            imgCarsls.innerHTML = imgCarslsContent;
+            // imgCarsls.innerHTML = imgCarslsContent;
+            imgCarsls.appendChild(imgCarslsContent);
           }
 
           setTimeout(() => {
