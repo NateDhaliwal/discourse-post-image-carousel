@@ -42,6 +42,7 @@ export default class CreateCarouselModal extends Component {
             <form.Field
               @name="enable_thumbs"
               @title="Enable thumbnails"
+              @description={{i18n (themePrefix "carousel.modal.enable_thumbs_description")}}
               as |field|
             >
               <field.Toggle />
@@ -51,6 +52,7 @@ export default class CreateCarouselModal extends Component {
           <form.Field
             @name="enable_loop"
             @title="Enable loop"
+            @description={{i18n (themePrefix "carousel.modal.enable_loop_description")}}
             as |field|
           >
             <field.Toggle />
@@ -59,12 +61,18 @@ export default class CreateCarouselModal extends Component {
           <form.Field
             @name="enable_autoplay"
             @title="Enable autoplay"
+            @description={{i18n (themePrefix "carousel.modal.enable_autoplay_description")}}
             as |field|
           >
             <field.Toggle />
           </form.Field>
     
-          <form.Field @name="autoplay_interval" @title="Autoplay interval" as |field|>
+          <form.Field
+            @name="autoplay_interval"
+            @title="Autoplay interval"
+            @description={{i18n (themePrefix "carousel.modal.autoplay_interval_description")}}
+            as |field|
+          >
             <field.Input @type="number" />
           </form.Field>
     
