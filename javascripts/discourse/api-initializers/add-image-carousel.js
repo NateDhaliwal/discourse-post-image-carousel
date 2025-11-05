@@ -36,7 +36,6 @@ export default apiInitializer((api) => {
     
     if (allImgCarsls !== null) {
       let allImgCarslsArr = [...allImgCarsls];
-      console.log(allImgCarsls);
 
       // Iterate, in case there are multiple carousels in a single post
       allImgCarslsArr.forEach((imgCarsls) => {
@@ -72,6 +71,7 @@ export default apiInitializer((api) => {
             //   <div class="swiper-wrapper">
             // `
           }
+          console.log(allImgs);
           allImgs.forEach((img) => {
             try {
               let imgElement = addElement("img", [], "");
