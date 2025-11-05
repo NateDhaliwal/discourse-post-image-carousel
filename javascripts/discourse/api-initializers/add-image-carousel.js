@@ -48,7 +48,7 @@ export default apiInitializer((api) => {
         let enable_autoplay = imgCarsls.dataset.autoplay === "true";
         let autoplay_interval = imgCarsls.dataset.interval;
         let enable_thumbs = imgCarsls.dataset.thumbs === "true";
-        let enable_loop = imgCarsls.dataset.thumbs === "true";
+        let enable_loop = imgCarsls.dataset.loop === "true";
         console.log(enable_loop);
         console.log(enable_thumbs);
         
