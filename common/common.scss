@@ -6,18 +6,18 @@
     } @else {
       --swiper-pagination-bullet-inactive-color: #000;
     }
-    
+
     @if $active-pagination-button-color != "" {
       --swiper-pagination-color: #{$active-pagination-button-color};
     } @else {
       --swiper-pagination-color: #007aff;
     }
   }
-  
+
   .splide__pagination__page {
     background-color: $pagination-button-color !important;
   }
-  
+
   .splide__pagination__page.is-active {
     background-color: $active-pagination-button-color !important;
   }
@@ -35,7 +35,6 @@
 //     margin: 0;
 //     padding: 0;
 //   }
-
 
 //   div.swiper-horizontal:not(.swiper-thumbs) {
 //     width: 75%;

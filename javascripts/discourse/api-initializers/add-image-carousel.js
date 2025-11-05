@@ -1,6 +1,4 @@
 import { apiInitializer } from "discourse/lib/api";
-import I18n from "discourse-i18n";
-
 import CreateCarouselModal from "../components/modal/create-carousel-modal";
 
 function addElement(name, classes, id) {
@@ -8,11 +6,11 @@ function addElement(name, classes, id) {
   classes.forEach((className) => {
     element.classList.add(className);
   });
-  
+
   if (id !== "") {
     element.id = id;
   }
-  
+
   return element;
 }
 
@@ -31,25 +29,25 @@ export default apiInitializer((api) => {
         modal.show(CreateCarouselModal, {
           model: { toolbarEvent: event },
         });
-      }
+      },
     });
   });
 
   api.decorateCookedElement((element) => {
     let allImgCarsls = element.querySelectorAll('div[data-wrap="Carousel"]');
-    
+
     if (allImgCarsls !== null) {
       let allImgCarslsArr = [...allImgCarsls];
 
       // Iterate, in case there are multiple carousels in a single post
       allImgCarslsArr.forEach((imgCarsls) => {
-        let allImgDivs = imgCarsls.querySelectorAll('img');
+        let allImgDivs = imgCarsls.querySelectorAll("img");
         let allImgs = [];
         let enable_autoplay = imgCarsls.dataset.autoplay === "true";
         let autoplay_interval = imgCarsls.dataset.interval;
         let enable_thumbs = imgCarsls.dataset.thumbs === "true";
         let enable_loop = imgCarsls.dataset.loop === "true";
-        
+
         if (allImgDivs !== null) {
           let allImgsDivsArr = [...allImgDivs];
           allImgsDivsArr.forEach((imgDiv) => {
@@ -58,8 +56,16 @@ export default apiInitializer((api) => {
         }
 
         if (settings.carousel_software === "Swiper") {
-          let imgCarslsContent = addElement("div", ["swiper"], `swiper-${allImgCarslsArr.indexOf(imgCarsls)}`);
-          let imgCarslsContentWrapper = addElement("div", ["swiper-wrapper"], "");
+          let imgCarslsContent = addElement(
+            "div",
+            ["swiper"],
+            `swiper-${allImgCarslsArr.indexOf(imgCarsls)}`
+          );
+          let imgCarslsContentWrapper = addElement(
+            "div",
+            ["swiper-wrapper"],
+            ""
+          );
           // let imgCarslsContent = `
           // <div class="swiper" id="swiper-${allImgCarslsArr.indexOf(imgCarsls)}">
           //   <div class="swiper-wrapper">
@@ -68,23 +74,31 @@ export default apiInitializer((api) => {
           let imgCarslsThumbContentWrapper;
           // let imgCarslsThumb = ``;
           if (enable_thumbs) {
-            imgCarslsThumb = addElement("div", ["swiper"], `swiper-${allImgCarslsArr.indexOf(imgCarsls)}-thumb`);
-            imgCarslsThumbContentWrapper = addElement("div", ["swiper-wrapper"], "");
+            imgCarslsThumb = addElement(
+              "div",
+              ["swiper"],
+              `swiper-${allImgCarslsArr.indexOf(imgCarsls)}-thumb`
+            );
+            imgCarslsThumbContentWrapper = addElement(
+              "div",
+              ["swiper-wrapper"],
+              ""
+            );
             // imgCarslsThumb = `
             // <div class="swiper" id="swiper-${allImgCarslsArr.indexOf(imgCarsls)}-thumb">
             //   <div class="swiper-wrapper">
             // `
           }
-          
+
           allImgs.forEach((img) => {
             try {
               let imgElement = addElement("img", [], "");
               imgElement.src = img.src;
               let slide = addElement("div", ["swiper-slide"], "");
               slide.appendChild(imgElement);
-              
+
               imgCarslsContentWrapper.appendChild(slide);
-              
+
               // imgCarslsContent += `
               //   <div class="swiper-slide">
               //     <img src="${img.src}" height="100%" width="100%"/>
@@ -96,7 +110,7 @@ export default apiInitializer((api) => {
                 //     <img src="${img.src}" height="100%" width="100%" style="aspect-ratio: 0;" />
                 //   </div>
                 // `;
-                let thumbSlide = slide.cloneNode(true) // Note: `true` here means that there will be a 'deep' clone
+                let thumbSlide = slide.cloneNode(true); // Note: `true` here means that there will be a 'deep' clone
                 imgCarslsThumbContentWrapper.appendChild(thumbSlide);
               }
             } catch (e) {
@@ -104,7 +118,7 @@ export default apiInitializer((api) => {
               console.error(e);
             }
           });
-            
+
           // imgCarslsContent += "\n</div>";
           // if (enable_thumbs) {
           //   imgCarslsThumb += "\n</div>";
@@ -144,13 +158,17 @@ export default apiInitializer((api) => {
           }
 
           setTimeout(() => {
-            const swiperElement = imgCarsls.querySelector(`#swiper-${allImgCarslsArr.indexOf(imgCarsls)}`);
+            const swiperElement = imgCarsls.querySelector(
+              `#swiper-${allImgCarslsArr.indexOf(imgCarsls)}`
+            );
             if (swiperElement) {
               if (enable_thumbs) {
-                const swiperElementThumb = imgCarsls.querySelector(`#swiper-${allImgCarslsArr.indexOf(imgCarsls)}-thumb`);
-                // console.log(swiperElementThumb);
+                const swiperElementThumb = imgCarsls.querySelector(
+                  `#swiper-${allImgCarslsArr.indexOf(imgCarsls)}-thumb`
+                );
+
+                // eslint-disable-next-line no-undef
                 let swiperThumb = new Swiper(swiperElementThumb, {
-                  // autoHeight: true,
                   spaceBetween: 10,
                   slidesPerView: 3,
                   freeMode: true,
@@ -162,25 +180,28 @@ export default apiInitializer((api) => {
                   loop: enable_loop,
                   // direction: settings.thumbs_direction,
                 });
+
+                // eslint-disable-next-line no-undef, no-unused-vars
                 let swiperCode = new Swiper(swiperElement, {
-                  // centeredSlides: true,
-                  // autoHeight: true,
-                  // centeredSlides: true,
                   spaceBetween: 10,
                   navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
                   },
-                  pagination: (settings.show_pagination_buttons) ? {
-                    el: '.swiper-pagination',
-                    clickable: true
-                  } : false,
+                  pagination: settings.show_pagination_buttons
+                    ? {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                      }
+                    : false,
                   loop: enable_loop,
-                  autoplay: (enable_autoplay) ? {
-                    delay: autoplay_interval
-                  } : false,
+                  autoplay: enable_autoplay
+                    ? {
+                        delay: autoplay_interval,
+                      }
+                    : false,
                   thumbs: {
-                    swiper: swiperThumb
+                    swiper: swiperThumb,
                   },
                   effect: settings.image_transition_animation,
                 });
@@ -191,30 +212,38 @@ export default apiInitializer((api) => {
                 //   console.log("Thumb height: " + swiperElementThumb.style.height);
                 // }
               } else {
+                // eslint-disable-next-line no-undef, no-unused-vars
                 let swiperCode = new Swiper(swiperElement, {
-                  // centeredSlides: true,
                   spaceBetween: 10,
                   navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
                   },
-                  pagination: (settings.show_pagination_buttons) ? {
-                    el: '.swiper-pagination',
-                    clickable: true
-                  } : false,
+                  pagination: settings.show_pagination_buttons
+                    ? {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                      }
+                    : false,
                   loop: enable_loop,
-                  autoplay: (enable_autoplay) ? {
-                    delay: autoplay_interval
-                  } : false,
+                  autoplay: enable_autoplay
+                    ? {
+                        delay: autoplay_interval,
+                      }
+                    : false,
                   effect: settings.image_transition_animation,
                 });
               }
             }
           }, 0);
         } else {
-          let imgCarslsContent = addElement("div", ["splide"], `splide-${allImgCarslsArr.indexOf(imgCarsls)}`);
+          let imgCarslsContent = addElement(
+            "div",
+            ["splide"],
+            `splide-${allImgCarslsArr.indexOf(imgCarsls)}`
+          );
           let splideTrack = addElement("div", ["splide__track"], "");
-          
+
           let splideList = addElement("ul", ["splide__list"], "");
           // let imgCarslsContent = `
           // <div class="splide" id="splide-${allImgCarslsArr.indexOf(imgCarsls)}">
@@ -247,15 +276,18 @@ export default apiInitializer((api) => {
 
           // Use setTimeout or next tick to ensure the element is in DOM
           setTimeout(() => {
-            const splideElement = imgCarsls.querySelector(`#splide-${allImgCarslsArr.indexOf(imgCarsls)}`);
+            const splideElement = imgCarsls.querySelector(
+              `#splide-${allImgCarslsArr.indexOf(imgCarsls)}`
+            );
             if (splideElement) {
+              // eslint-disable-next-line no-undef
               new Splide(splideElement, {
                 pagination: settings.show_pagination_buttons,
                 arrows: true,
                 perPage: 1,
-                type: enable_loop ? 'loop' : 'slide',
+                type: enable_loop ? "loop" : "slide",
                 autoplay: enable_autoplay,
-                interval: autoplay_interval
+                interval: autoplay_interval,
               }).mount();
             }
           }, 0);

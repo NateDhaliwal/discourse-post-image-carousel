@@ -1,18 +1,16 @@
 import Component from "@glimmer/component";
-import { on } from "@ember/modifier";
 import { action } from "@ember/object";
-import DModal from "discourse/components/d-modal";
-import DButton from "discourse/components/d-button";
-import Form from "discourse/components/form";
-import I18n from "discourse-i18n";
-import { i18n } from "discourse-i18n";
 import { eq } from "truth-helpers";
+import DModal from "discourse/components/d-modal";
+import Form from "discourse/components/form";
+import I18n, { i18n } from "discourse-i18n";
 
 export default class CreateCarouselModal extends Component {
   constructor() {
     super(...arguments);
     const currentLocale = I18n.currentLocale();
-    I18n.translations[currentLocale].js.composer.image_carousel_placeholder = `<img src="${settings.image_carousel_placeholder}" />`;
+    I18n.translations[currentLocale].js.composer.image_carousel_placeholder =
+      `<img src="${settings.image_carousel_placeholder}" />`;
   }
 
   @action
@@ -20,13 +18,13 @@ export default class CreateCarouselModal extends Component {
     const toolbarEvent = this.args.model.toolbarEvent;
     if (settings.carousel_software === "Splide") {
       toolbarEvent.applySurround(
-        `[wrap="Carousel" autoplay=${data.enable_autoplay !== undefined} interval=${(data.enable_autoplay  !== undefined && data.autoplay_interval > 1) ? data.autoplay_interval : false} loop=${data.enable_loop !== undefined}]\n`,
+        `[wrap="Carousel" autoplay=${data.enable_autoplay !== undefined} interval=${data.enable_autoplay !== undefined && data.autoplay_interval > 1 ? data.autoplay_interval : false} loop=${data.enable_loop !== undefined}]\n`,
         "\n[/wrap]",
         "image_carousel_placeholder"
       );
     } else {
       toolbarEvent.applySurround(
-        `[wrap="Carousel" autoplay=${data.enable_autoplay !== undefined} interval=${(data.enable_autoplay  !== undefined && data.autoplay_interval > 1) ? data.autoplay_interval : false} loop=${data.enable_loop !== undefined} thumbs=${data.enable_thumbs !== undefined}]\n`,
+        `[wrap="Carousel" autoplay=${data.enable_autoplay !== undefined} interval=${data.enable_autoplay !== undefined && data.autoplay_interval > 1 ? data.autoplay_interval : false} loop=${data.enable_loop !== undefined} thumbs=${data.enable_thumbs !== undefined}]\n`,
         "\n[/wrap]",
         "image_carousel_placeholder"
       );
@@ -35,47 +33,58 @@ export default class CreateCarouselModal extends Component {
   }
 
   <template>
-    <DModal @title={{i18n (themePrefix "carousel.modal.modal_title")}} @closeModal={{@closeModal}}>
+    <DModal
+      @title={{i18n (themePrefix "carousel.modal.modal_title")}}
+      @closeModal={{@closeModal}}
+    >
       <:body>
         <Form @onSubmit={{this.handleSubmit}} as |form|>
           {{#if (eq settings.carousel_software "Swiper")}}
             <form.Field
               @name="enable_thumbs"
               @title="Enable thumbnails"
-              @description={{i18n (themePrefix "carousel.modal.enable_thumbs_description")}}
+              @description={{i18n
+                (themePrefix "carousel.modal.enable_thumbs_description")
+              }}
               as |field|
             >
               <field.Toggle />
             </form.Field>
           {{/if}}
-  
+
           <form.Field
             @name="enable_loop"
             @title="Enable loop"
-            @description={{i18n (themePrefix "carousel.modal.enable_loop_description")}}
+            @description={{i18n
+              (themePrefix "carousel.modal.enable_loop_description")
+            }}
             as |field|
           >
             <field.Toggle />
           </form.Field>
-  
+
           <form.Field
             @name="enable_autoplay"
             @title="Enable autoplay"
-            @description={{i18n (themePrefix "carousel.modal.enable_autoplay_description")}}
+            @description={{i18n
+              (themePrefix "carousel.modal.enable_autoplay_description")
+            }}
             as |field|
           >
             <field.Toggle />
           </form.Field>
-    
+
           <form.Field
             @name="autoplay_interval"
             @title="Autoplay interval"
-            @description={{i18n (themePrefix "carousel.modal.autoplay_interval_description")}}
+            @description={{i18n
+              (themePrefix "carousel.modal.autoplay_interval_description")
+            }}
             as |field|
           >
             <field.Input @type="number" />
           </form.Field>
-    
+
           <form.Submit />
         </Form>
       </:body>
