@@ -75,16 +75,16 @@ export default apiInitializer((api) => {
             //   <div class="swiper-wrapper">
             // `
           }
-          console.log(allImgs);
+          
           allImgs.forEach((img) => {
             try {
               let imgElement = addElement("img", [], "");
               imgElement.src = img.src;
               let slide = addElement("div", ["swiper-slide"], "");
               slide.appendChild(imgElement);
-              console.log(slide);
+              
               imgCarslsContentWrapper.appendChild(slide);
-              console.log(imgCarslsContentWrapper);
+              
               // imgCarslsContent += `
               //   <div class="swiper-slide">
               //     <img src="${img.src}" height="100%" width="100%"/>
