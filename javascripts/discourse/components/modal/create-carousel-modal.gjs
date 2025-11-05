@@ -19,11 +19,19 @@ export default class CreateCarouselModal extends Component {
   handleSubmit(data) {
     console.log(data);
     const toolbarEvent = this.args.model.toolbarEvent;
-    toolbarEvent.applySurround(
-      `[wrap="Carousel" autoplay=${data.enable_autoplay !== undefined} interval=${(data.enable_autoplay  !== undefined && data.autoplay_interval > 1) ? data.autoplay_interval : false} loop=${data.enable_loop !== undefined} thumbs=${data.enable_thumbs !== undefined}]\n`,
-      "\n[/wrap]",
-      "image_carousel_placeholder"
-    );
+    if (settings.carousel_software === "Splide") {
+      toolbarEvent.applySurround(
+        `[wrap="Carousel" autoplay=${data.enable_autoplay !== undefined} interval=${(data.enable_autoplay  !== undefined && data.autoplay_interval > 1) ? data.autoplay_interval : false} loop=${data.enable_loop !== undefined}]\n`,
+        "\n[/wrap]",
+        "image_carousel_placeholder"
+      );
+    } else {
+      toolbarEvent.applySurround(
+        `[wrap="Carousel" autoplay=${data.enable_autoplay !== undefined} interval=${(data.enable_autoplay  !== undefined && data.autoplay_interval > 1) ? data.autoplay_interval : false} loop=${data.enable_loop !== undefined} thumbs=${data.enable_thumbs !== undefined}]\n`,
+        "\n[/wrap]",
+        "image_carousel_placeholder"
+      );
+    }
     this.args.closeModal();
   }
 
@@ -31,36 +39,38 @@ export default class CreateCarouselModal extends Component {
     <DModal @title={{i18n (themePrefix "carousel.modal.modal_title")}} @closeModal={{@closeModal}}>
       <:body>
         <Form @onSubmit={{this.handleSubmit}} as |form|>
-        <form.Field
-          @name="enable_thumbs"
-          @title="Enable thumbnails"
-          as |field|
-        >
-          <field.Toggle />
-        </form.Field>
-
-        <form.Field
-          @name="enable_loop"
-          @title="Enable loop"
-          as |field|
-        >
-          <field.Toggle />
-        </form.Field>
-
-        <form.Field
-          @name="enable_autoplay"
-          @title="Enable autoplay"
-          as |field|
-        >
-          <field.Toggle />
-        </form.Field>
+          {{#if (eq settings.carousel_software "Swiper")}}
+            <form.Field
+              @name="enable_thumbs"
+              @title="Enable thumbnails"
+              as |field|
+            >
+              <field.Toggle />
+            </form.Field>
+          {{/if}}
   
-        <form.Field @name="autoplay_interval" @title="Autoplay interval" as |field|>
-          <field.Input @type="number" />
-        </form.Field>
+          <form.Field
+            @name="enable_loop"
+            @title="Enable loop"
+            as |field|
+          >
+            <field.Toggle />
+          </form.Field>
   
-        <form.Submit />
-      </Form>
+          <form.Field
+            @name="enable_autoplay"
+            @title="Enable autoplay"
+            as |field|
+          >
+            <field.Toggle />
+          </form.Field>
+    
+          <form.Field @name="autoplay_interval" @title="Autoplay interval" as |field|>
+            <field.Input @type="number" />
+          </form.Field>
+    
+          <form.Submit />
+        </Form>
       </:body>
     </DModal>
   </template>
