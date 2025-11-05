@@ -79,6 +79,7 @@ export default apiInitializer((api) => {
           allImgs.forEach((img) => {
             try {
               let imgElement = addElement("img", [], "");
+              imgElement.src = img.src;
               let slide = addElement("div", ["swiper-slide"], "");
               slide.appendChild(imgElement);
               console.log(slide);
@@ -95,7 +96,8 @@ export default apiInitializer((api) => {
                 //     <img src="${img.src}" height="100%" width="100%" style="aspect-ratio: 0;" />
                 //   </div>
                 // `;
-                imgCarslsThumbContentWrapper.appendChild(slide);
+                let thumbSlide = slide.cloneNode(true) // Note: `true` here means that there will be a 'deep' clone
+                imgCarslsThumbContentWrapper.appendChild(thumbSlide);
               }
             } catch (e) {
               // eslint-disable-next-line no-console
