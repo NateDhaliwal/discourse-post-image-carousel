@@ -209,25 +209,38 @@ export default apiInitializer((api) => {
             }
           }, 0);
         } else {
-          let imgCarslsContent = `
-          <div class="splide" id="splide-${allImgCarslsArr.indexOf(imgCarsls)}">
-            <div class="splide__track">
-              <ul class="splide__list">
-          `
+          let imgCarslsContent = addElement("div", ["splide"], `splide-${allImgCarslsArr.indexOf(imgCarsls)}`);
+          let splideTrack = addElement("div", ["splide__track"], "");
+          
+          let splideList = addElement("ul", ["splide__list"], "");
+          // let imgCarslsContent = `
+          // <div class="splide" id="splide-${allImgCarslsArr.indexOf(imgCarsls)}">
+          //   <div class="splide__track">
+          //     <ul class="splide__list">
+          // `
           allImgs.forEach((img) => {
-            imgCarslsContent += `
-              <li class="splide__slide">
-                <img src="${img.src}" height="100%" width="100%" />
-              </li>
-            `;
+            let imageSlide = addElement("li", ["splide__slide"], "");
+            let imageElement = addElement("img", [], "");
+            imageElement.src = img.src;
+            imageSlide.appendChild(imageSlide);
+            // imgCarslsContent += `
+            //   <li class="splide__slide">
+            //     <img src="${img.src}" height="100%" width="100%" />
+            //   </li>
+            // `;
+            splideList.appendChild(imageSlide);
           });
-          imgCarslsContent += `
-              </ul>
-            </div>
-          </div>
-          `
 
-          imgCarsls.innerHTML = imgCarslsContent;
+          splideTrack.appendChild(splideList);
+          imgCarslsContent.appendChild(splideTrack);
+          // imgCarslsContent += `
+          //     </ul>
+          //   </div>
+          // </div>
+          // `
+
+          imgCarsls.innerHTML = "";
+          imgCarsls.appendChild(imgCarslsContent);
 
           // Use setTimeout or next tick to ensure the element is in DOM
           setTimeout(() => {
