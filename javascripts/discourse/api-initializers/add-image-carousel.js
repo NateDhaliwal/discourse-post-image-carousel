@@ -36,6 +36,7 @@ export default apiInitializer((api) => {
     
     if (allImgCarsls !== null) {
       let allImgCarslsArr = [...allImgCarsls];
+      console.log(allImgCarsls);
 
       // Iterate, in case there are multiple carousels in a single post
       allImgCarslsArr.forEach((imgCarsls) => {
@@ -107,7 +108,7 @@ export default apiInitializer((api) => {
           }
 
           if (settings.show_pagination_buttons) {
-            let paginationDiv = addElement("div", ["swiper=pagination"], "");
+            let paginationDiv = addElement("div", ["swiper-pagination"], "");
             imgCarslsContent.appendChild(paginationDiv);
             // imgCarslsContent += `
             // <div class="swiper-pagination"></div>
