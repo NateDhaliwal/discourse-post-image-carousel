@@ -113,6 +113,7 @@ export default apiInitializer((api) => {
                 const swiperElementThumb = imgCarsls.querySelector(`#swiper-${allImgCarslsArr.indexOf(imgCarsls)}-thumb`);
                 // console.log(swiperElementThumb);
                 let swiperThumb = new Swiper(swiperElementThumb, {
+                  autoHeight: true,
                   spaceBetween: 10,
                   slidesPerView: 3,
                   freeMode: true,
@@ -122,10 +123,10 @@ export default apiInitializer((api) => {
                   watchSlidesProgress: true,
                   watchOverflow: true,
                   loop: enable_loop,
-                  autoHeight: true,
                   // direction: settings.thumbs_direction,
                 });
                 let swiperCode = new Swiper(swiperElement, {
+                  autoHeight: true,
                   // centeredSlides: true,
                   spaceBetween: 10,
                   navigation: {
@@ -144,7 +145,6 @@ export default apiInitializer((api) => {
                     swiper: swiperThumb
                   },
                   effect: settings.image_transition_animation,
-                  autoHeight: true,
                 });
 
                 // if (settings.thumbs_direction === "vertical") {
