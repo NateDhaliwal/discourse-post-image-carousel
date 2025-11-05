@@ -75,7 +75,7 @@ export default apiInitializer((api) => {
               if (enable_thumbs) {
                 imgCarslsThumb += `
                   <div class="swiper-slide">
-                    <img src="${img.src}" height="100%" width="100%" style="aspect-ratio: 0;" />
+                    <img src="${img.src}" height="100%" width="100%" />
                   </div>
                 `;
               }
@@ -122,6 +122,7 @@ export default apiInitializer((api) => {
                   watchSlidesProgress: true,
                   watchOverflow: true,
                   loop: enable_loop,
+                  autoHeight: true,
                   // direction: settings.thumbs_direction,
                 });
                 let swiperCode = new Swiper(swiperElement, {
@@ -143,6 +144,7 @@ export default apiInitializer((api) => {
                     swiper: swiperThumb
                   },
                   effect: settings.image_transition_animation,
+                  autoHeight: true,
                 });
 
                 // if (settings.thumbs_direction === "vertical") {
