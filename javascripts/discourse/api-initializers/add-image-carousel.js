@@ -8,7 +8,11 @@ function addElement(name, classes, id) {
   classes.forEach((className) => {
     element.classList.add(className);
   });
-  element.id = id;
+  
+  if (id !== "") {
+    element.id = id;
+  }
+  
   return element;
 }
 
