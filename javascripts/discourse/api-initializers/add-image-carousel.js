@@ -88,7 +88,7 @@ export default apiInitializer((api) => {
                 //     <img src="${img.src}" height="100%" width="100%" style="aspect-ratio: 0;" />
                 //   </div>
                 // `;
-                imgCarslsThumbContentWrapper.apendChild(slide);
+                imgCarslsThumbContentWrapper.appendChild(slide);
               }
             } catch (e) {
               // eslint-disable-next-line no-console
