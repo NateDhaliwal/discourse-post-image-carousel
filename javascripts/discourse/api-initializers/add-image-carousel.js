@@ -222,7 +222,7 @@ export default apiInitializer((api) => {
             let imageSlide = addElement("li", ["splide__slide"], "");
             let imageElement = addElement("img", [], "");
             imageElement.src = img.src;
-            imageSlide.appendChild(imageSlide);
+            imageSlide.appendChild(imageElement);
             // imgCarslsContent += `
             //   <li class="splide__slide">
             //     <img src="${img.src}" height="100%" width="100%" />
