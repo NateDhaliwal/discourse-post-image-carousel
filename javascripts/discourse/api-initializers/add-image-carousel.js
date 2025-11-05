@@ -61,6 +61,7 @@ export default apiInitializer((api) => {
           //   <div class="swiper-wrapper">
           // `
           let imgCarslsThumb;
+          let imgCarslsThumbContentWrapper;
           // let imgCarslsThumb = ``;
           if (enable_thumbs) {
             imgCarslsThumb = addElement("div", ["swiper"], `swiper-${allImgCarslsArr.indexOf(imgCarsls)}-thumb`);
@@ -101,7 +102,9 @@ export default apiInitializer((api) => {
           // }
 
           imgCarslsContent.appendChild(imgCarslsContentWrapper);
-          imgCarslsThumb.appendChild(imgCarslsThumbContentWrapper);
+          if (enable_thumbs) {
+            imgCarslsThumb.appendChild(imgCarslsThumbContentWrapper);
+          }
 
           if (settings.show_pagination_buttons) {
             let paginationDiv = addElement("div", ["swiper=pagination"], "");
