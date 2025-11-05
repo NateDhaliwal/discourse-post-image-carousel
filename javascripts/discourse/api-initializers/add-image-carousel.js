@@ -162,7 +162,7 @@ export default apiInitializer((api) => {
                   // direction: settings.thumbs_direction,
                 });
                 let swiperCode = new Swiper(swiperElement, {
-                  // centeredSlides: true,
+                  centeredSlides: true,
                   spaceBetween: 10,
                   navigation: {
                     nextEl: '.swiper-button-next',
@@ -189,7 +189,7 @@ export default apiInitializer((api) => {
                 // }
               } else {
                 let swiperCode = new Swiper(swiperElement, {
-                  // centeredSlides: true,
+                  centeredSlides: true,
                   spaceBetween: 10,
                   navigation: {
                     nextEl: '.swiper-button-next',
