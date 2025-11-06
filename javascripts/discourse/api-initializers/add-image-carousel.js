@@ -184,6 +184,7 @@ export default apiInitializer((api) => {
                 // eslint-disable-next-line no-undef, no-unused-vars
                 let swiperCode = new Swiper(swiperElement, {
                   centeredSlides: true,
+                  centeredSlidesBounds: true,
                   spaceBetween: 10,
                   navigation: {
                     nextEl: ".swiper-button-next",
@@ -216,6 +217,7 @@ export default apiInitializer((api) => {
                 // eslint-disable-next-line no-undef, no-unused-vars
                 let swiperCode = new Swiper(swiperElement, {
                   centeredSlides: true,
+                  centeredSlidesBounds: true,
                   spaceBetween: 10,
                   navigation: {
                     nextEl: ".swiper-button-next",
