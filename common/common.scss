@@ -27,6 +27,11 @@
   aspect-ratio: 0; // Use actual image sizes, not square
 }
 
+// Have some space between the carousel and the thumbs
+div.swiper-thumbs {
+  margin-top: 2em;
+}
+
 // @if $thumbs_direction == "vertical" {
 //   div[data-wrap="Carousel"] {
 //     display: flex;
