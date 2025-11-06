@@ -7,8 +7,6 @@ import DModal from "discourse/components/d-modal";
 import Form from "discourse/components/form";
 import I18n, { i18n } from "discourse-i18n";
 
-
-
 export default class CreateCarouselModal extends Component {
   @tracked formData = {
     images: []
