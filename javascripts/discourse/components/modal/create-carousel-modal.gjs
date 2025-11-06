@@ -109,7 +109,7 @@ export default class CreateCarouselModal extends Component {
           </form.Button>
           <form.Collection @name="images" as |collection index|>
             <collection.Field @name="image_upload" @title={{concat "Image " index}} as |field|>
-              <field.Image />
+              <field.Image @type="composer" />
               <form.Button @action={{fn collection.remove index}}>
                 Remove image
               </form.Button>
