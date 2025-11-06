@@ -44,7 +44,7 @@ export default apiInitializer((api) => {
         let autoplay_interval = imgCarsls.dataset.interval;
         let enable_thumbs = imgCarsls.dataset.thumbs === "true";
         let enable_loop = imgCarsls.dataset.loop === "true";
-        let enable_thumbs_loop = imgCarsls.dataset.thumbs_loop === "true";
+        let enable_thumbs_loop = imgCarsls.dataset.thumbsloop === "true";
 
         // eslint-disable-next-line no-console
         console.log(`${enable_loop} | ${enable_thumbs_loop}`);
