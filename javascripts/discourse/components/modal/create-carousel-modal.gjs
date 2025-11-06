@@ -24,6 +24,8 @@ export default class CreateCarouselModal extends Component {
     const toolbarEvent = this.args.model.toolbarEvent;
     // eslint-disable-next-line no-console
     console.log(data.images);
+    // eslint-disable-next-line no-console
+    console.log(this.formData);
     if (settings.carousel_software === "Splide") {
       toolbarEvent.applySurround(
         `[wrap="Carousel" autoplay=${data.enable_autoplay !== undefined} interval=${data.enable_autoplay !== undefined && data.autoplay_interval > 1 ? data.autoplay_interval : false} loop=${data.enable_loop !== undefined}]\n`,
