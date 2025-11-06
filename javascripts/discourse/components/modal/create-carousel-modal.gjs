@@ -113,7 +113,7 @@ export default class CreateCarouselModal extends Component {
               @title={{concat "Image " index}}
               as |field|
             >
-              <field.Image @type="composer" @value={{or field.value ""}} />
+              <field.Image @type="composer" />
               <form.Button @action={{fn collection.remove index}}>
                 Remove image
               </form.Button>
