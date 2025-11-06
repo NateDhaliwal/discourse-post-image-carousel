@@ -183,7 +183,6 @@ export default apiInitializer((api) => {
 
                 // eslint-disable-next-line no-undef, no-unused-vars
                 let swiperCode = new Swiper(swiperElement, {
-                  direction: 'vertical',
                   centeredSlides: true,
                   spaceBetween: 10,
                   navigation: {
@@ -216,7 +215,6 @@ export default apiInitializer((api) => {
               } else {
                 // eslint-disable-next-line no-undef, no-unused-vars
                 let swiperCode = new Swiper(swiperElement, {
-                  direction: 'vertical',
                   centeredSlides: true,
                   spaceBetween: 10,
                   navigation: {
