@@ -1,6 +1,6 @@
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
-import { concat } from '@ember/helper';
+import { concat, fn } from '@ember/helper';
 import { action } from "@ember/object";
 import { eq } from "truth-helpers";
 import DModal from "discourse/components/d-modal";
@@ -104,9 +104,15 @@ export default class CreateCarouselModal extends Component {
             <field.Input @type="number" />
           </form.Field>
 
+          <form.Button @action={{fn form.addItemToCollection "foo" (hash bar=3)}}>
+            Add image
+          </form.Button>
           <form.Collection @name="images" as |collection index|>
             <collection.Field @name="image_upload" @title={{concat "Image " index}} as |field|>
               <field.Image />
+              <form.Button @action={{fn collection.remove index}}>
+                Remove image
+              </form.Button>
             </collection.Field>
           </form.Collection>
 
