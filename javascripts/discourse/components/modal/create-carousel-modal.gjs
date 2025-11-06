@@ -8,7 +8,9 @@ import Form from "discourse/components/form";
 import I18n, { i18n } from "discourse-i18n";
 
 export default class CreateCarouselModal extends Component {
-  @tracked images = [];
+  @tracked formData = {
+    images: []
+  };
 
   constructor() {
     super(...arguments);
@@ -44,7 +46,7 @@ export default class CreateCarouselModal extends Component {
       @closeModal={{@closeModal}}
     >
       <:body>
-        <Form @onSubmit={{this.handleSubmit}} as |form|>
+        <Form @data={{this.formData}} @onSubmit={{this.handleSubmit}} as |form|>
           {{#if (eq settings.carousel_software "Swiper")}}
             <form.Field
               @name="enable_thumbs"
