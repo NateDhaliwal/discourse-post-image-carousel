@@ -104,7 +104,7 @@ export default class CreateCarouselModal extends Component {
             <field.Input @type="number" />
           </form.Field>
 
-          <form.Button @action={{fn form.addItemToCollection "foo" (hash bar=3)}}>
+          <form.Button @action={{fn form.addItemToCollection "images"}}>
             Add image
           </form.Button>
           <form.Collection @name="images" as |collection index|>
