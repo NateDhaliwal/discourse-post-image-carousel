@@ -1,4 +1,5 @@
 import Component from "@glimmer/component";
+import { concat } from '@ember/helper';
 import { action } from "@ember/object";
 import { eq } from "truth-helpers";
 import DModal from "discourse/components/d-modal";
