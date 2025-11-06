@@ -15,9 +15,6 @@ function addElement(name, classes, id) {
 }
 
 export default apiInitializer((api) => {
-  // const currentLocale = I18n.currentLocale();
-  // I18n.translations[currentLocale].js.composer.image_carousel_placeholder = `<img src="${settings.image_carousel_placeholder}" height="${settings.image_carousel_placeholder_height}" width="${settings.image_carousel_placeholder_width}" />`;
-
   api.onToolbarCreate((toolbar) => {
     toolbar.addButton({
       id: "image-carousel",
@@ -47,6 +44,7 @@ export default apiInitializer((api) => {
         let autoplay_interval = imgCarsls.dataset.interval;
         let enable_thumbs = imgCarsls.dataset.thumbs === "true";
         let enable_loop = imgCarsls.dataset.loop === "true";
+        let enable_thumbs_loop = imgCarsls.dataset.thumbs_loop === "true";
 
         if (allImgDivs !== null) {
           let allImgsDivsArr = [...allImgDivs];
@@ -177,7 +175,7 @@ export default apiInitializer((api) => {
                   watchSlidesVisibility: true,
                   watchSlidesProgress: true,
                   watchOverflow: true,
-                  loop: enable_loop,
+                  loop: enable_thumbs_loop,
                   // direction: settings.thumbs_direction,
                 });
 
