@@ -1,4 +1,5 @@
 import Component from "@glimmer/component";
+import { tracked } from "@glimmer/tracking";
 import { concat } from '@ember/helper';
 import { action } from "@ember/object";
 import { eq } from "truth-helpers";
@@ -7,6 +8,8 @@ import Form from "discourse/components/form";
 import I18n, { i18n } from "discourse-i18n";
 
 export default class CreateCarouselModal extends Component {
+  @tracked images = [];
+
   constructor() {
     super(...arguments);
     const currentLocale = I18n.currentLocale();
