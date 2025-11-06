@@ -3,7 +3,8 @@ en:
   carousel:
     modal:
       modal_title: "Add carousel"
-      enable_thumbs_description: "Show thumbnails of the images; at least 7-8 images to work properly with `loop` on"
+      enable_thumbs_description: "Show thumbnails of the images"
+      enable_thumbs_loop_description: "Loop the carousel thumbnail; at least 7-8 images to work properly with `loop` on"
       enable_loop_description: "Loop the carousel when at the start/end"
       enable_autoplay_description: "Autoplay carousels in posts; can be changed within each carousel"
       autoplay_interval_description: "The interval in miliseconds (ms) of the autoplay function in carousels"
