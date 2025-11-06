@@ -46,6 +46,9 @@ export default apiInitializer((api) => {
         let enable_loop = imgCarsls.dataset.loop === "true";
         let enable_thumbs_loop = imgCarsls.dataset.thumbs_loop === "true";
 
+        // eslint-disable-next-line no-console
+        console.log(enable_loop + enable_thumbs_loop);
+
         if (allImgDivs !== null) {
           let allImgsDivsArr = [...allImgDivs];
           allImgsDivsArr.forEach((imgDiv) => {
