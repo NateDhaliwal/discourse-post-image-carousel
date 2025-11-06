@@ -24,7 +24,7 @@ export default class CreateCarouselModal extends Component {
       );
     } else {
       toolbarEvent.applySurround(
-        `[wrap="Carousel" autoplay=${data.enable_autoplay !== undefined} interval=${data.enable_autoplay !== undefined && data.autoplay_interval > 1 ? data.autoplay_interval : false} loop=${data.enable_loop !== undefined} thumbs=${data.enable_thumbs !== undefined}]\n`,
+        `[wrap="Carousel" autoplay=${data.enable_autoplay !== undefined} interval=${data.enable_autoplay !== undefined && data.autoplay_interval > 1 ? data.autoplay_interval : false} loop=${data.enable_loop !== undefined} thumbs=${data.enable_thumbs !== undefined} thumbs_loop=${data.enable_thumbs_loop !== undefined}]\n`,
         "\n[/wrap]",
         "image_carousel_placeholder"
       );
@@ -57,6 +57,17 @@ export default class CreateCarouselModal extends Component {
             @title="Enable loop"
             @description={{i18n
               (themePrefix "carousel.modal.enable_loop_description")
+            }}
+            as |field|
+          >
+            <field.Toggle />
+          </form.Field>
+
+          <form.Field
+            @name="enable_thumbs_loop"
+            @title="Enable thumbnail loop"
+            @description={{i18n
+              (themePrefix "carousel.modal.enable_thumbs_loop_description")
             }}
             as |field|
           >
