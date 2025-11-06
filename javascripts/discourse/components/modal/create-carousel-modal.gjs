@@ -16,6 +16,8 @@ export default class CreateCarouselModal extends Component {
   @action
   handleSubmit(data) {
     const toolbarEvent = this.args.model.toolbarEvent;
+    // eslint-disable-next-line no-console
+    console.log(data.images);
     if (settings.carousel_software === "Splide") {
       toolbarEvent.applySurround(
         `[wrap="Carousel" autoplay=${data.enable_autoplay !== undefined} interval=${data.enable_autoplay !== undefined && data.autoplay_interval > 1 ? data.autoplay_interval : false} loop=${data.enable_loop !== undefined}]\n`,
@@ -95,6 +97,12 @@ export default class CreateCarouselModal extends Component {
           >
             <field.Input @type="number" />
           </form.Field>
+
+          <form.Collection @name="images" as |collection index|>
+            <collection.Field @name="image" @title="{{concat "Image-" index}}" as |field|>
+              <field.Image />
+            </collection.Field>
+          </form.Collection>
 
           <form.Submit />
         </Form>
