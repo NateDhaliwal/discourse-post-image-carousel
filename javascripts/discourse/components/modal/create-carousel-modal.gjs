@@ -109,7 +109,6 @@ export default class CreateCarouselModal extends Component {
           </form.Button>
           <form.Collection @name="images" as |collection index|>
             <collection.Field
-              @name={{concat "image_" index}}
               @title={{concat "Image " index}}
               as |field|
             >
