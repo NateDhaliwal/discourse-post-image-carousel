@@ -41,7 +41,12 @@ export default apiInitializer((api) => {
         let allImgDivs = imgCarsls.querySelectorAll("img");
         let allImgs = [];
         let enable_autoplay = imgCarsls.dataset.autoplay === "true";
-        let autoplay_interval = imgCarsls.dataset.interval;
+        let autoplay_interval;
+        if (enable_autoplay) {
+          autoplay_interval = imgCarsls.dataset.interval ? imgCarsls.dataset.interval : 5000;
+        } else {
+          autoplay_interval = false;
+        }
         let enable_thumbs = imgCarsls.dataset.thumbs === "true";
         let enable_loop = imgCarsls.dataset.loop === "true";
         let enable_thumbs_loop = imgCarsls.dataset.thumbsloop === "true";
