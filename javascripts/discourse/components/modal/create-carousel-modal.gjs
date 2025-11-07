@@ -16,7 +16,7 @@ export default class CreateCarouselModal extends Component {
     super(...arguments);
     const currentLocale = I18n.currentLocale();
     I18n.translations[currentLocale].js.composer.image_carousel_placeholder =
-      `<img src="${settings.image_carousel_placeholder}" />`;
+      settings.image_carousel_placeholder ? `<img src="${settings.image_carousel_placeholder}" />` : "";
   }
 
   @action
