@@ -1,6 +1,6 @@
 en:
-  add_image_carousel: "Add image carousel"
   carousel:
+    add_image_carousel: "Add image carousel"
     modal:
       modal_title: "Add carousel"
       enable_thumbs_description: "Show thumbnails of the images"
