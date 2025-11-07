@@ -20,7 +20,7 @@ export default apiInitializer((api) => {
       id: "image-carousel",
       group: "extras",
       icon: "images",
-      title: themePrefix("add_image_carousel"),
+      title: themePrefix("carousel.add_image_carousel"),
       action: (event) => {
         const modal = api.container.lookup("service:modal");
         modal.show(CreateCarouselModal, {
