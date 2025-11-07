@@ -28,13 +28,13 @@ export default class CreateCarouselModal extends Component {
     // console.log(this.formData);
     if (settings.carousel_software === "Splide") {
       toolbarEvent.applySurround(
-        `[wrap="Carousel" autoplay=${data.enable_autoplay !== undefined} interval=${data.enable_autoplay !== undefined && data.autoplay_interval > 1 ? data.autoplay_interval : false} loop=${data.enable_loop !== undefined}]\n`,
+        `[wrap="Carousel" autoplay=${data.enable_autoplay !== undefined} interval=${data.enable_autoplay !== undefined && data.autoplay_interval > 1 ? data.autoplay_interval : false} loop=${data.enable_loop !== undefined}]\n<!-- Add images here -->\n`,
         "\n[/wrap]",
         "image_carousel_placeholder"
       );
     } else {
       toolbarEvent.applySurround(
-        `[wrap="Carousel" autoplay=${data.enable_autoplay !== undefined} interval=${data.enable_autoplay !== undefined && data.autoplay_interval > 1 ? data.autoplay_interval : false} loop=${data.enable_loop !== undefined} thumbs=${data.enable_thumbs !== undefined} thumbs_loop=${data.enable_thumbs_loop !== undefined}]\n`,
+        `[wrap="Carousel" autoplay=${data.enable_autoplay !== undefined} interval=${data.enable_autoplay !== undefined && data.autoplay_interval > 1 ? data.autoplay_interval : false} loop=${data.enable_loop !== undefined} thumbs=${data.enable_thumbs !== undefined} thumbs_loop=${data.enable_thumbs_loop !== undefined}]\n<!-- Add images here -->\n`,
         "\n[/wrap]",
         "image_carousel_placeholder"
       );
