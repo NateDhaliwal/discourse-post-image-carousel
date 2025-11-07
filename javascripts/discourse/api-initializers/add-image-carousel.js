@@ -43,7 +43,7 @@ export default apiInitializer((api) => {
         let enable_autoplay = imgCarsls.dataset.autoplay === "true";
         let autoplay_interval;
         if (enable_autoplay) {
-          autoplay_interval = imgCarsls.dataset.interval ? imgCarsls.dataset.interval : 5000;
+          autoplay_interval = imgCarsls.dataset.interval === "false" 5000 : imgCarsls.dataset.interval;
         } else {
           autoplay_interval = false;
         }
